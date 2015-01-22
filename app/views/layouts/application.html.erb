@@ -5,10 +5,13 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <!--[if lt IE 9]>
+    <script src="bower_components/html5shiv/dist/html5shiv.js"></script>
+  <![endif]-->
 </head>
 <body>
 <%= render 'layouts/header' %>
-  
+
 <%= yield %>
 
 </body>
