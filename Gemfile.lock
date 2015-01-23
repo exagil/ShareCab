@@ -211,7 +211,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   coffee-rails (~> 4.1.0)
-  font-awesome-sass
+  font-awesome-sass (~> 4.2.0)
   guard
   guard-bundler
   guard-livereload
