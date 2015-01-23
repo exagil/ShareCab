@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users do
-    get '/users/sign_out' => 'devise/sessions#destroy'
-  end
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
 
   get 'static_pages/index'
 
