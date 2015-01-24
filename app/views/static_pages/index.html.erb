@@ -7,11 +7,11 @@
 <form class="form-inline">
   <div class="form-group">
     <!-- <label for="exampleInputName2">Origin</label> -->
-    <input type="text" class="form-control" id="exampleInputName2"  placeholder="Origin">
+    <input type="text" class="form-control" id="origin"  placeholder="Origin">
   </div>
   <div class="form-group">
     <!-- <label for="exampleInputEmail2">Destination</label> -->
-    <input type="email" class="form-control" id="exampleInputName2" placeholder="Destination">
+    <input type="email" class="form-control" id="destination" placeholder="Destination">
   </div>
 
    <div class="form-group">
@@ -31,3 +31,9 @@
 
 <%= render 'footer' %>
 
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#origin").geocomplete();
+    $("#destination").geocomplete();
+  });
+</script>

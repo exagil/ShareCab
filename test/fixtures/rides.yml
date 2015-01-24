@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  origin: MyString
+  origin_lat: 1.5
+  origin_long: 1.5
+  destination: MyString
+  destination_lat: 1.5
+  destination_long: 1.5
+  departure_date: 2015-01-24
+  departure_time: 2015-01-24 17:53:56
+  number_of_seats: 1
+  number_of_seats_occupied: 1
+  completed: false
+  initiator_id: 
+
+two:
+  origin: MyString
+  origin_lat: 1.5
+  origin_long: 1.5
+  destination: MyString
+  destination_lat: 1.5
+  destination_long: 1.5
+  departure_date: 2015-01-24
+  departure_time: 2015-01-24 17:53:56
+  number_of_seats: 1
+  number_of_seats_occupied: 1
+  completed: false
+  initiator_id: 

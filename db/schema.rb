@@ -11,7 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150124070737) do
+ActiveRecord::Schema.define(version: 20150124130811) do
+
+  create_table "rides", force: :cascade do |t|
+    t.string   "origin"
+    t.float    "origin_lat"
+    t.float    "origin_long"
+    t.string   "destination"
+    t.float    "destination_lat"
+    t.float    "destination_long"
+    t.date     "departure_date"
+    t.time     "departure_time"
+    t.integer  "number_of_seats"
+    t.integer  "number_of_seats_occupied"
+    t.boolean  "completed"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "initiater_id"
+  end
+
+  add_index "rides", ["initiater_id"], name: "index_rides_on_initiater_id"
+
+  create_table "ridings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "ride_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "ridings", ["ride_id"], name: "index_ridings_on_ride_id"
+  add_index "ridings", ["user_id"], name: "index_ridings_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",              default: "", null: false
