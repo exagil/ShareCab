@@ -1,0 +1,28 @@
+// Place all the styles related to the static_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.div-center {
+  text-align: center;
+  margin-top: 5vh;
+}
+
+.icon-size{
+  font-size: 100px;
+  color: #404040;
+  margin-bottom: 5vh;
+}
+
+.icon-size p {
+  text-align: justify;
+}
+
+footer {
+  height: 10vh;
+  // width:100vh;
+  background-color: #404040;
+  margin-top: 5vh;
+}
+
+.container li{
+  list-style: none;
+}
