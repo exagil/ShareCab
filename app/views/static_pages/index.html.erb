@@ -2,24 +2,24 @@
   <div class="row">
   <%= render 'carousel' %>
 
-
 <div class="col-md-offset-2 col-md-8">
 <form class="form-inline">
-  <div class="form-group">
-    <!-- <label for="exampleInputName2">Origin</label> -->
-    <input type="text" class="form-control" id="exampleInputName2"  placeholder="Origin">
+  <div class="form-group fill-origin">
+    <input type="text" class="form-control" id="origin"  placeholder="Origin">
+    <input type="hidden" class="form-control" name="lat">
+    <input type="hidden" class="form-control" name="lng">
   </div>
-  <div class="form-group">
-    <!-- <label for="exampleInputEmail2">Destination</label> -->
-    <input type="email" class="form-control" id="exampleInputName2" placeholder="Destination">
+  <div class="form-group fill-destination">
+    <input type="text" class="form-control" id="destination" placeholder="Destination">
+    <input type="hidden" class="form-control" name="lat">
+    <input type="hidden" class="form-control" name="lng">
   </div>
 
    <div class="form-group">
-    <!-- <label for="exampleInputEmail2">Destination</label> -->
-    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Date">
+    <input type="date" class="form-control" id="date" placeholder="Date">
   </div>
 
-  <button type="submit" class="btn btn-default">Find</button>
+  <button type="submit" class="btn btn-default" id="find">Find</button>
 </form>
 </div>
 
@@ -28,3 +28,34 @@
 </div><!-- container-fluid end -->
 
 <%= render 'deliverables' %>
+
+<%= render 'footer' %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(function(){
+      $("#origin").geocomplete({
+        // map: ".map_canvas",
+        details: ".fill-origin",
+        // types: ["geocode", "establishment"],
+      });
+
+      // $("#find").click(function(){
+      //   $("#geocomplete").trigger("geocode");
+      // });
+    });
+
+    $(function(){
+      $("#destination").geocomplete({
+        // map: ".map_canvas",
+        details: ".fill-destination",
+        // types: ["geocode", "establishment"],
+      });
+
+      // $("#find").click(function(){
+      //   $("#geocomplete").trigger("geocode");
+      // });
+    });
+  });
+
+</script>
