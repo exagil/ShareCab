@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150124122447) do
+ActiveRecord::Schema.define(version: 20150124130811) do
 
   create_table "rides", force: :cascade do |t|
     t.string   "origin"
@@ -27,7 +27,10 @@ ActiveRecord::Schema.define(version: 20150124122447) do
     t.boolean  "completed"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "initiater_id"
   end
+
+  add_index "rides", ["initiater_id"], name: "index_rides_on_initiater_id"
 
   create_table "ridings", force: :cascade do |t|
     t.integer  "user_id"
