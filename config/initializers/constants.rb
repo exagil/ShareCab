@@ -1,5 +1,0 @@
-module Constants
-  APP_ID='348078458713880'
-  APP_SECRET='9339e316e3738162b0991e0bfedf7481'
-end
-

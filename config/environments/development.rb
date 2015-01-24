@@ -1,4 +1,6 @@
 Rails.application.configure do
+  APP_ID='348322615356131'
+  APP_SECRET='efe77119e7d90b3a8d6e64b65cb69345'
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
