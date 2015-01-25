@@ -4,16 +4,18 @@
     <div class="col-md-offset-2 col-md-8">
       
       <!-- form -->
-      <form class="form-inline">
+      <%= form_tag(rides_path, class: 'form-inline', method: :get) do %>
         <div class="form-group fill-origin">
-          <input type="text" class="form-control" id="origin"  placeholder="Origin">
-          <input type="text" class="form-control" id="origin-lat" name="lat">
-          <input type="text" class="form-control" id="origin-long" name="lng">
+          <%= text_field_tag :origin, params[:origin], class: 'form-control', placeholder: "Origin" %>
+          <%= hidden_field_tag :lat, params[:origin_lat], class: 'form-control origin-lat' %>
+          <%= hidden_field_tag :lng, params[:origin_lng], class: 'form-control origin-lng' %>
+          <!-- <input type="hidden" class="form-control" id="origin-lat" name="lat">
+          <input type="hidden" class="form-control" id="origin-long" name="lng"> -->
         </div>
         <div class="form-group fill-destination">
-          <input type="text" class="form-control" id="destination" placeholder="Destination">
-          <input type="text" class="form-control" id="destination-lat" name="lat">
-          <input type="text" class="form-control" id="destination-long" name="lng">
+          <%= text_field_tag :destination, params[:destination], class: 'form-control', placeholder: "Destination" %>
+          <%= hidden_field_tag :lat, params[:destination_lat], class: 'form-control destination-lat' %>
+          <%= hidden_field_tag :lng, params[:destination_lng], class: 'form-control destination-lng' %>
         </div>
 
          <div class="form-group">
@@ -21,10 +23,9 @@
         </div>
 
         <button type="submit" class="btn btn-default" id="find">Find</button>
-      </form>
+      <% end %>
       <!-- form end -->
-      
-      </div>
+      </div>  
   </div><!-- Row end -->
 </div><!-- container-fluid end -->
 
@@ -64,8 +65,8 @@
       // });
 
       $(this).bind("geocode:dragged", function(event, latLng){
-        $("#origin-lat").val(latLng.lat());
-        $("#origin-long").val(latLng.lng());
+        $(".origin-lat").val(latLng.lat());
+        $(".origin-lng").val(latLng.lng());
       });
 
     }); // end of origin
@@ -98,8 +99,8 @@
       // });
 
       $(this).bind("geocode:dragged", function(event, latLng){
-        $("#destination-lat").val(latLng.lat());
-        $("#destination-long").val(latLng.lng());
+        $(".destination-lat").val(latLng.lat());
+        $(".destination-lng").val(latLng.lng());
       });
 
     }); // end of destination
