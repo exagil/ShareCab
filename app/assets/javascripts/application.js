@@ -15,4 +15,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery.geocomplete
+//= require geocomplete_static_pages
 //= require_tree .
