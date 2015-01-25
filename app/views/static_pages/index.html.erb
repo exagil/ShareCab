@@ -1,30 +1,31 @@
 <div class="container-fluid">
   <div class="row">
-  <%= render 'carousel' %>
+    <%= render partial: 'static_pages/carousel' %>
+    <div class="col-md-offset-2 col-md-8">
+      
+      <!-- form -->
+      <form class="form-inline">
+        <div class="form-group fill-origin">
+          <input type="text" class="form-control" id="origin"  placeholder="Origin">
+          <input type="text" class="form-control" id="origin-lat" name="lat">
+          <input type="text" class="form-control" id="origin-long" name="lng">
+        </div>
+        <div class="form-group fill-destination">
+          <input type="text" class="form-control" id="destination" placeholder="Destination">
+          <input type="text" class="form-control" id="destination-lat" name="lat">
+          <input type="text" class="form-control" id="destination-long" name="lng">
+        </div>
 
-<div class="col-md-offset-2 col-md-8">
-<form class="form-inline">
-  <div class="form-group fill-origin">
-    <input type="text" class="form-control" id="origin"  placeholder="Origin">
-    <input type="hidden" class="form-control" name="lat">
-    <input type="hidden" class="form-control" name="lng">
-  </div>
-  <div class="form-group fill-destination">
-    <input type="text" class="form-control" id="destination" placeholder="Destination">
-    <input type="hidden" class="form-control" name="lat">
-    <input type="hidden" class="form-control" name="lng">
-  </div>
+         <div class="form-group">
+          <input type="date" class="form-control" id="date" placeholder="Date">
+        </div>
 
-   <div class="form-group">
-    <input type="date" class="form-control" id="date" placeholder="Date">
-  </div>
-
-  <button type="submit" class="btn btn-default" id="find">Find</button>
-</form>
-</div>
-
-</div><!-- Row end -->
-
+        <button type="submit" class="btn btn-default" id="find">Find</button>
+      </form>
+      <!-- form end -->
+      
+      </div>
+  </div><!-- Row end -->
 </div><!-- container-fluid end -->
 
 <%= render 'deliverables' %>
@@ -33,29 +34,78 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $(function(){
-      $("#origin").geocomplete({
-        // map: ".map_canvas",
+    
+    // Origin
+    $("#origin").on('click', function(){
+      if (!($('.map-canvas-origin').length)){ // origin map not present
+        console.log("Origin Map: " + $('.map-canvas-origin').length);
+        $(".map-canvas-destination").remove();
+        $("#carousel-example-generic").remove();
+        var mapCanvasOrigin = "<div class='map-canvas-origin'></div>"
+        $(".toggle-map").append(mapCanvasOrigin);
+      }
+      else{ // origin map present
+        $(".map-canvas-destination").remove();
+        $("#carousel-example-generic").remove();
+        // var mapCanvasOrigin = "<div class='map-canvas'></div>"
+        // $(".toggle-map").append(mapCanvasOrigin);
+      }
+
+      $(this).geocomplete({
+        map: ".map-canvas-origin",
         details: ".fill-origin",
-        // types: ["geocode", "establishment"],
+        markerOptions: {
+          draggable: true
+        }
       });
 
       // $("#find").click(function(){
       //   $("#geocomplete").trigger("geocode");
       // });
-    });
 
-    $(function(){
-      $("#destination").geocomplete({
-        // map: ".map_canvas",
+      $(this).bind("geocode:dragged", function(event, latLng){
+        $("#origin-lat").val(latLng.lat());
+        $("#origin-long").val(latLng.lng());
+      });
+
+    }); // end of origin
+
+    // Destination
+    $("#destination").on('click', function(){
+      if (!($('.map-canvas-destination').length)){ // destination map not present
+        $("#carousel-example-generic").remove();
+        $('.map-canvas-origin').remove();
+        var mapCanvasDestination = "<div class='map-canvas-destination'></div>"
+        $(".toggle-map").append(mapCanvasDestination);
+      }
+      else{ // destination map present
+        $(".map-canvas-origin").remove();
+        $("#carousel-example-generic").remove();
+        // var mapCanvasOrigin = "<div class='map-canvas'></div>"
+        // $(".toggle-map").append(mapCanvasOrigin);
+      }
+
+      $(this).geocomplete({
+        map: ".map-canvas-destination",
         details: ".fill-destination",
-        // types: ["geocode", "establishment"],
+        markerOptions: {
+          draggable: true
+        }
       });
 
       // $("#find").click(function(){
       //   $("#geocomplete").trigger("geocode");
       // });
-    });
+
+      $(this).bind("geocode:dragged", function(event, latLng){
+        $("#destination-lat").val(latLng.lat());
+        $("#destination-long").val(latLng.lng());
+      });
+
+    }); // end of destination
+
+      
   });
+
 
 </script>
