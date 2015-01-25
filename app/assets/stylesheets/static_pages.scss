@@ -26,3 +26,8 @@ footer {
 .container li{
   list-style: none;
 }
+
+.map-canvas-origin, .map-canvas-destination{ 
+  width: 100vw; 
+  height: 378px;
+}

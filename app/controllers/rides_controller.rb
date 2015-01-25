@@ -3,4 +3,9 @@ class RidesController < ApplicationController
     ride = Ride.new(ride_params)
     
   end
+
+  def index
+    fail
+  end
+
 end
