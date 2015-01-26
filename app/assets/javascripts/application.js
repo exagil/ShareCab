@@ -16,4 +16,5 @@
 //= require turbolinks
 //= require jquery.geocomplete
 //= require geocomplete_static_pages
+//= jquery.nouislider.all
 //= require_tree .

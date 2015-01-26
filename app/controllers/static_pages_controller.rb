@@ -10,4 +10,7 @@ class StaticPagesController < ApplicationController
 
   def dashboard
   end
+
+  def no_ride_found
+  end
 end
