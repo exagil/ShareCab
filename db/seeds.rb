@@ -85,3 +85,11 @@ Ride.create(origin: "Delhi, New Delhi, India",
             destination_lat: 28.4089123,
             destination_long: 77.31778940000004,
             departure_date: "2015-01-15")
+
+Ride.create(origin: "Kangra, Himachal Pradesh, India",
+            origin_lat: 32.0998031,
+            origin_long: 76.2691006,
+            destination: "Sudarshan Nagar, Pimpri-Chinchwad, Maharashtra, India",
+            destination_lat: 18.5977841,
+            destination_long: 73.81433649999997,
+            departure_date: "2015-01-15")
