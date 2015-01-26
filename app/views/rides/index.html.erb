@@ -1,0 +1,17 @@
+<%= @carry %>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Origin</th>
+    <th>Destination</th>
+    <th>Departure Date</th>
+  </tr>
+<% @rides.each do |ride| %>
+  <tr>
+    <td><%= ride.id %></td>
+    <td><%= ride.origin %></td>
+    <td><%= ride.destination %></td>
+    <td><%= ride.departure_date %></td>
+  </tr>
+<% end %>
+</table>
