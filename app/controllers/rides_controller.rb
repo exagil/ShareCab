@@ -11,17 +11,13 @@ class RidesController < ApplicationController
       # the distance between the entered origin and the ride origin is less than range
       # the distance between the entered destination and the ride destination is less than range
     # cool! store it in @rides_display
-
-    range = 5 # set the range here
-    rides = Ride.all
-    @rides_display = []
-    rides.each do |ride|
-      # distance between entered origin and db origin
-      distance_origin = Geocoder::Calculations.distance_between([params[:origin_lat],params[:origin_lng]],[ride.origin_lat, ride.origin_long])
-      distance_destination = Geocoder::Calculations.distance_between([params[:destination_lat],params[:destination_lng]],[ride.destination_lat, ride.destination_long])
-      if distance_origin < range && distance_destination < range
-      @rides_display << ride
-      end
+    @rides = Ride.get_suitable_rides(5, params[:origin_lat],params[:origin_lng], params[:destination_lat],params[:destination_lng])
+    if(@rides.length<1) # no rides
+      redirect_to new_ride_url
     end
+  end
+
+  def new
+    @ride = Ride.new
   end
 end

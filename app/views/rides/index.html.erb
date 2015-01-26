@@ -1,3 +1,4 @@
+<%= @carry %>
 <table>
   <tr>
     <th>ID</th>
@@ -5,7 +6,7 @@
     <th>Destination</th>
     <th>Departure Date</th>
   </tr>
-<% @rides_display.each do |ride| %>
+<% @rides.each do |ride| %>
   <tr>
     <td><%= ride.id %></td>
     <td><%= ride.origin %></td>
