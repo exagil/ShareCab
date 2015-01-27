@@ -46,7 +46,7 @@
     </script>
     <!-- //end script for map -->
 
-    <div class="col-md-10 col-md-offset-2">
+    <div class="col-md-offset-1 col-md-10">
     <%= render partial: 'static_pages/form' %>
     </div>
     <div class="col-md-2">
@@ -55,23 +55,31 @@
       </div>
     </div>
 
-<table>
+<table id="selected-rides">
   <tr>
     <th>ID</th>
     <th>Origin</th>
     <th>Destination</th>
     <th>Departure Date</th>
   </tr>
+
 <% @rides.each do |ride| %>
-  <tr>
-    <td><%= ride.id %></td>
-    <td><%= ride.origin %></td>
-    <td><%= ride.destination %></td>
-    <td><%= ride.departure_date %></td>
+  <tr id="ride-<%= ride.id %>">
+    <td><%= link_to ride.id, ride_path(ride) %></td>
+    <td><%= link_to ride.origin, ride_path(ride) %></td>
+    <td><%= link_to ride.destination, ride_path(ride) %></td>
+    <td><%= link_to ride.departure_date, ride_path(ride) %></td>
   </tr>
+
+
 <% end %>
 </table>
 
+<script>
+$('').click(function(){
+  console.log("hi")
+})
+</script>
 
 
 </div>
