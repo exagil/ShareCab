@@ -32,7 +32,7 @@ class Ride < ActiveRecord::Base
   #   self.origin_long = coords[1]
   # end
 
-  def Ride.get_suitable_rides(range, origin_lat,origin_lng, destination_lat, destination_lng)
+  def self.get_suitable_rides(range, origin_lat,origin_lng, destination_lat, destination_lng)
     rides = self.all
     @rides_display = []
     rides.each do |ride|

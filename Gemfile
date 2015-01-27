@@ -25,6 +25,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'geocoder'
 gem 'annotate'
+gem 'jquery-turbolinks'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

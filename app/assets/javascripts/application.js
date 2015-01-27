@@ -11,10 +11,10 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require turbolinks
 //= require jquery.geocomplete
 //= require geocomplete_static_pages
-//= jquery.nouislider.all
+//= require turbolinks
 //= require_tree .

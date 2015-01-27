@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="row">
+  <div id="map-canvas-rides-index" style="height:40vh; width:100vw"></div>
+  </div>
+</div>
+
+<script type="text/javascript">
+ready = function() {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' +'libraries=places&'+'callback=initialize';
+    document.body.appendChild(script);
+   };
+
+      var directionsDisplay;
+      var directionsService = new google.maps.DirectionsService();
+      var map;
+      // var contentString = "Lorem ipsum";
+
+      // var infowindow = new google.maps.InfoWindow({
+      //   // content:contentString
+      // });
+
+      // var marker;
+      function initialize() {
+      map = new google.maps.Map(document.getElementById('map-canvas-rides-index'), {
+          zoom: 10,
+          // center: new google.maps.LatLng(-33.92, 151.25),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+
+
+      directionsDisplay = new google.maps.DirectionsRenderer();
+
+      directionsDisplay.setMap(map);
+
+      var start = new google.maps.LatLng(<%= session[:origin_lat] %>, <%= session[:origin_lng] %>);
+      var end = new google.maps.LatLng(<%= session[:destination_lat] %>, <%= session[:destination_lng] %>);
+      var request = {
+          origin: start,
+          destination: end,
+          travelMode: google.maps.DirectionsTravelMode.DRIVING
+      };
+      directionsService.route(request, function (response, status) {
+          if (status == google.maps.DirectionsStatus.OK) {
+              directionsDisplay.setDirections(response);
+          }
+      });
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+        $(document).ready(ready); //calls for the function we defined above (first loading)
+        $(document).on('page:load',ready)
+
+
+
+      // google.maps.event.trigger(map, 'resize');
+      // map.setZoom( map.getZoom() );
+    </script>
+    <!-- //end script for map -->
