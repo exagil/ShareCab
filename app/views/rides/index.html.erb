@@ -1,9 +1,57 @@
-
-
+<div class="container-fluid">
+  <div class="row">
+  <div id="map-canvas-rides-index" style="height:40vh; width:100vw"></div>
+  </div>
+</div>
 <div class="container">
   <div class="row">
+    <script type="text/javascript">//begin script for map
+
+      var directionsDisplay;
+      var directionsService = new google.maps.DirectionsService();
+      var map;
+      // var contentString = "Lorem ipsum";
+
+      // var infowindow = new google.maps.InfoWindow({
+      //   // content:contentString
+      // });
+
+      // var marker;
+      function initialize() {
+      map = new google.maps.Map(document.getElementById('map-canvas-rides-index'), {
+          zoom: 10,
+          // center: new google.maps.LatLng(-33.92, 151.25),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+
+
+      directionsDisplay = new google.maps.DirectionsRenderer();
+
+      directionsDisplay.setMap(map);
+
+      var start = new google.maps.LatLng(<%= params[:origin_lat] %>, <%= params[:origin_lng] %>);
+      var end = new google.maps.LatLng(<%= params[:destination_lat] %>, <%= params[:destination_lng] %>);
+      var request = {
+          origin: start,
+          destination: end,
+          travelMode: google.maps.DirectionsTravelMode.DRIVING
+      };
+      directionsService.route(request, function (response, status) {
+          if (status == google.maps.DirectionsStatus.OK) {
+              directionsDisplay.setDirections(response);
+          }
+      });
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+    <!-- //end script for map -->
+
+    <div class="col-md-10 col-md-offset-2">
+    <%= render partial: 'static_pages/form' %>
+    </div>
     <div class="col-md-2">
-      <div class="bfh-timepicker" data-time="now">
+      <div class="bfh-timepicker" id="timepicker1" data-time="now"></div>
+      <div class="bfh-timepicker" id="timepicker2" data-time="now">
       </div>
     </div>
 
@@ -31,4 +79,5 @@
 
  <script type="text/javascript">
   $('#timepicker1').timepicker();
+  $('#timepicker2').timepicker();
 </script>
