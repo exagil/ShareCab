@@ -13,4 +13,7 @@ class StaticPagesController < ApplicationController
 
   def no_ride_found
   end
+
+  def successful_ride_creation
+  end
 end

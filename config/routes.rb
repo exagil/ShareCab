@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   
   get 'static_pages/dashboard'
 
+  get 'static_pages/successful_ride_creation'
+
   get 'static_pages/no_ride_found'
 
   # The priority is based upon order of creation: first created -> highest priority.
