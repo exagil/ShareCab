@@ -7,15 +7,15 @@
 <%= form_tag(rides_path, class: 'form-inline', method: :post) do %>
   <div class="form-group fill-origin">
     <%= text_field_tag :origin, session[:origin], class: 'form-control', placeholder: "Origin" %>
-    <%= hidden_field_tag :lat, params[:o_dummy_1], class: 'form-control origin-lat' %>
-    <%= hidden_field_tag :lng, params[:o_dummy_2], class: 'form-control origin-lng' %>
+    <%= hidden_field_tag :lat, session[:origin_lat], class: 'form-control origin-lat' %>
+    <%= hidden_field_tag :lng, session[:origin_lng], class: 'form-control origin-lng' %>
     <%= hidden_field_tag :origin_lat, session[:origin_lat], class: 'form-control' %>
     <%= hidden_field_tag :origin_lng, session[:origin_lng], class: 'form-control' %>
   </div>
   <div class="form-group fill-destination">
     <%= text_field_tag :destination, session[:destination], class: 'form-control', placeholder: "Destination" %>
-    <%= hidden_field_tag :lat, params[:d_dummy_2], class: 'form-control destination-lat' %>
-    <%= hidden_field_tag :lng, params[:o_dummy_3], class: 'form-control destination-lng' %>
+    <%= hidden_field_tag :lat, session[:destination_lat], class: 'form-control destination-lat' %>
+    <%= hidden_field_tag :lng, session[:destination_lng], class: 'form-control destination-lng' %>
     <%= hidden_field_tag :destination_lat, session[:destination_lat], class: 'form-control' %>
     <%= hidden_field_tag :destination_lng, session[:destination_lng], class: 'form-control' %>
   </div>
@@ -86,7 +86,7 @@ $(document).ready(function(){
     // }
 
     $('#destination').geocomplete({
-      // map: ".map-canvas-destination",
+      map: ".map-canvas-destination",
       details: ".fill-destination",
       markerOptions: {
         draggable: true
