@@ -1,7 +1,8 @@
 class RidesController < ApplicationController
   before_action :restrict_access, except: [:index]
   def create
-    # current_user.rides.create()
+    
+    # current_user.rides.create(origin: , origin_lat: nil, origin_long: nil, destination: nil, destination_lat: nil, destination_long: nil, departure_date: nil, departure_time: nil, number_of_seats: nil, number_of_seats_occupied: nil, completed: nil, created_at: nil, updated_at: nil, initiater_id: nil)
   end
 
   def index
