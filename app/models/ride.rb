@@ -22,6 +22,7 @@
 class Ride < ActiveRecord::Base
   has_many :ridings
   has_many :users, through: :ridings
+  belongs_to :initiater, class_name: User.name
 
   # geocoded_by :destination, :latitude => :destination_lat, :longitude => :destination_long
   # after_validation :geocode
