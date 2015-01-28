@@ -6,10 +6,13 @@
     <div class="col-md-offset-1 col-md-10">
     <%= render partial: 'static_pages/form' %>
     </div>
+
     <div class="col-md-2">
-      <div class="bfh-timepicker" id="timepicker1" data-time="now"></div>
-      <div class="bfh-timepicker" id="timepicker2" data-time="now">
-      </div>
+      <% if user_signed_in? %>
+        <div class="bfh-timepicker" id="timepicker1" data-time="now"></div>
+        <div class="bfh-timepicker" id="timepicker2" data-time="now">
+        </div>
+      <% end %>
     </div>
 
 <table id="selected-rides">
@@ -22,10 +25,10 @@
 
 <% @rides.each do |ride| %>
   <tr id="ride-<%= ride.id %>">
-    <td><%= link_to ride.id, ride_path(ride) %></td>
-    <td><%= link_to ride.origin, ride_path(ride) %></td>
-    <td><%= link_to ride.destination, ride_path(ride) %></td>
-    <td><%= link_to ride.departure_date, ride_path(ride) %></td>
+    <td><%= link_to ride.id, user_signed_in? ? ride_path(ride) : user_omniauth_authorize_path(:facebook) %></td>
+    <td><%= link_to ride.origin, user_signed_in? ? ride_path(ride) : user_omniauth_authorize_path(:facebook) %></td>
+    <td><%= link_to ride.destination, user_signed_in? ? ride_path(ride) : user_omniauth_authorize_path(:facebook) %></td>
+    <td><%= link_to ride.departure_date, user_signed_in? ? ride_path(ride) : user_omniauth_authorize_path(:facebook) %></td>
   </tr>
 
 

@@ -50,7 +50,7 @@
           <% if user_signed_in? %>
             <%= link_to "Log Out", destroy_user_session_path, method: :delete  %>
             <% else %>
-            <%= link_to "Log in", new_user_session_path %>  
+            <%= link_to "Log in", user_omniauth_authorize_path(:facebook) %>  
           <% end %>
         </li>
       </ul>
