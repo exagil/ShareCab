@@ -12,12 +12,17 @@ Rails.application.routes.draw do
   
   get 'static_pages/dashboard'
 
+  get 'static_pages/no_ride_found'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'static_pages#index'
   resources :rides
+  ###################
+  #should we link rides and users routes?
+  ###################
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

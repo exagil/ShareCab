@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-1 col-md-10">
+<%= form_for @ride do |f| %>
+  <%= f.text_field :origin, {value: session[:origin]} %>
+  <%= f.text_field :destination, {value: session[:destination]} %>
+  <%= f.date_field :departure_date %>
+  <%= f.time_field :departure_time %>
+  <%= f.submit %>
+<% end %>
+</div>
+</div>
+</div>
