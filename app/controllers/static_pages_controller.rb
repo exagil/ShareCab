@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+  before_action :restrict_access, except: [:index, :about, :contact_us, :no_ride_found]
+
   def index
   end
 
@@ -8,10 +10,10 @@ class StaticPagesController < ApplicationController
   def contact_us
   end
 
-  def dashboard
+  def no_ride_found
   end
 
-  def no_ride_found
+  def dashboard
   end
 
   def successful_ride_creation

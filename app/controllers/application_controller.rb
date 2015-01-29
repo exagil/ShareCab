@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource_or_scope)
 
     if request.env['omniauth.origin']
-      if request.env['omniauth.origin']=='http://localhost:3000/'
-          request.env['omniauth.origin']='http://localhost:3000/static_pages/dashboard'
+      if request.env['omniauth.origin']==APP_HOST
+          request.env['omniauth.origin'] = APP_HOST + 'static_pages/dashboard'
       end
       request.env['omniauth.origin']
     end
@@ -22,4 +22,11 @@ class ApplicationController < ActionController::Base
     # The following DID NOT WORK
     # devise_parameter_sanitizer.for(:sign_up) += [:dob,:name,:gender]
   end
+
+  def restrict_access
+    if !user_signed_in?
+      redirect_to root_url
+    end
+  end
+
 end

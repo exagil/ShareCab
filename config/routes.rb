@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     :omniauth_callbacks => "users/omniauth_callbacks"
   }
 
+
   get 'static_pages/index'
 
   get 'static_pages/about'

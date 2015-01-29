@@ -54,12 +54,6 @@ class RidesController < ApplicationController
   end
 
   private
-    def restrict_access
-      if !user_signed_in?
-        redirect_to root_url
-      end
-    end
-
     def ride_params
       params.require(:ride).permit(:origin, :destination, :origin_lat, :origin_lng, :destination, :destination_lat, :destination_lng, :date)
     end
