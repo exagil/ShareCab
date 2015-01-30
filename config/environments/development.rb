@@ -43,5 +43,14 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :address => "email-smtp.us-west-2.amazonaws.com",
+      :user_name => "AKIAI3HPHMX53UCEHCCQ", # Your SMTP user here.
+      :password => "AnhvhrUQBnmrF27i1TGJ7YdjTvxsFW8nvlU/fXgQuZZN", # Your SMTP password here.
+      :authentication => :login,
+      :enable_starttls_auto => true
+  }
+
 
 end

@@ -31,6 +31,8 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:facebook]
 #IMPROVE
   def self.from_omniauth(auth)
+    bool=User.find_by(email: auth.info.email)
+    
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
@@ -38,6 +40,9 @@ class User < ActiveRecord::Base
       # user.image = auth.info.image # assuming the user model has an image
       user.dob = auth.extra.raw_info.user_birthday
       user.gender = auth.extra.raw_info.gender
+      if bool==nil
+        UserMailer.welcome(auth.info.email, auth.info.name).deliver_now
+      end
     end
   end
 

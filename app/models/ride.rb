@@ -16,7 +16,6 @@
 #  completed                :boolean
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null
-#  initiater_id             :integer
 #
 
 class Ride < ActiveRecord::Base
