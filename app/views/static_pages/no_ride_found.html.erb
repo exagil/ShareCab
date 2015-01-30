@@ -2,5 +2,6 @@
   <p>Oops! Seems like there is no body who matches your route. Please enter your ride details so that we can match you with someone who looks for the same ride in future</p>
 </div>
 
-<%= link_to "Create a Ride", new_ride_path %>
+
+<%= link_to "Create a Ride", user_signed_in? ? new_ride_path : user_omniauth_authorize_path(:facebook)%>
 <!-- Bad user experience. Ask the user to login and them ask him to create a new ride -->
