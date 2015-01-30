@@ -83,4 +83,13 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'sharecab.herokuapp.com' }
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :address => "email-smtp.us-east-1.amazonaws.com",
+      :user_name => SMTP_USERNAME, # Your SMTP user here.
+      :password => SMTP_PWD, # Your SMTP password here.
+      :authentication => :login,
+      :enable_starttls_auto => true
+  }
+
 end
