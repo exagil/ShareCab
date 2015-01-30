@@ -23,7 +23,6 @@ class User < ActiveRecord::Base
   
   has_many :ridings
   has_many :rides, through: :ridings
-  # has_many :create_ride, class_name: Ride.name, foreign_key: :initiater_id
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
