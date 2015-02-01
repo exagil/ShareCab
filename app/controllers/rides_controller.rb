@@ -41,7 +41,10 @@ class RidesController < ApplicationController
   end
 
   def show
-    @ride = params[:id]
+    @ride = Ride.find(params[:id])
+    @comment = Comment.new
+    @comment.ride_id = @ride.id
+    @comments = @ride.comments # sort comments
   end
 
   def destroy

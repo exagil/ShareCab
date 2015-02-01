@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     :omniauth_callbacks => "users/omniauth_callbacks"
   }
 
-
+  resources :comments, only: [:create] 
   get 'static_pages/index'
 
   get 'static_pages/about'
@@ -22,7 +22,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'static_pages#index'
-  resources :rides
+  resources :rides do
+    resources :comments
+  end
   ###################
   #should we link rides and users routes?
   ###################

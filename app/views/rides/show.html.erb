@@ -1,7 +1,10 @@
 <%= render partial: 'rides/routemap' %>
-
 <div class="container">
+  <%= render partial: 'rides/comment', collection: @comments %>
   <div class="row">
-  
+    <%= form_for([@ride, @comment]) do |f| %>
+      <%= f.text_field :body, class: 'form-control' %>
+      <%= f.submit :submit %>
+    <% end %>
   </div>
 </div>
