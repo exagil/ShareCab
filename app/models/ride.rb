@@ -21,6 +21,7 @@
 class Ride < ActiveRecord::Base
   has_many :ridings
   has_many :users, through: :ridings
+  has_many :comments
 
   # geocoded_by :destination, :latitude => :destination_lat, :longitude => :destination_long
   # after_validation :geocode
