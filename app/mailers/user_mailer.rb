@@ -9,6 +9,11 @@ class UserMailer < ApplicationMailer
       @name = name
       mail(:to => email, :subject => "Welcome to ShareCab")
     end
+
+    def join(email, name)
+      @name = name
+      mail(:to => email, :subject => "You have joined a ride!")
+    end
     
 
 end

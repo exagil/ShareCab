@@ -51,6 +51,13 @@ class RidesController < ApplicationController
   end
 
   def update
+    ride = Ride.find(params[:id])
+    riding =ride.ridings.new(user_id: current_user.id)
+    riding_save = riding.save
+    if riding_save
+      UserMailer.join(current_user.email, current_user.name).deliver_now
+    end
+    redirect_to root_path
   end
 
   def edit

@@ -1,5 +1,6 @@
 <%= render partial: 'rides/routemap' %>
 <div class="container">
+  <%= link_to "Join", ride_path(@ride) , method: :patch %>
   <%= render partial: 'rides/comment', collection: @comments %>
   <div class="row">
     <%= form_for([@ride, @comment]) do |f| %>
