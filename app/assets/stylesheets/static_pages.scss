@@ -6,10 +6,11 @@
 //colors
   $landing-blue: #191F25;
   $landing-pink: #CC2262;
-@import url(http://fonts.googleapis.com/css?family=Raleway:100,700);
+@import url(http://fonts.googleapis.com/css?family=Raleway:100,400,700);
 
 body {
-  overflow-x: hidden;
+  // overflow-x: hidden;
+  overflow: hidden;
   font-family: 'Raleway', sans-serif;
 }
 
@@ -101,11 +102,12 @@ footer {
   margin-top: 0px;
   font-family: 'Raleway', sans-serif;
   color: whitesmoke;
-  .container.heading{
+  .heading{
     color:white;
     text-align: center;
     font-size: 6em;
     margin-top: 10vh;
+    font-family: 'Raleway', sans-serif;
   }
   .fa {
     color: lightgrey;
@@ -170,4 +172,8 @@ footer {
   margin-left: 0.1em;
   margin-bottom: 0.2em;
   padding: .6em;
+}
+
+#origin, #destination, #date {
+  font-weight: 400;
 }
