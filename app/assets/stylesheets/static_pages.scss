@@ -1,6 +1,17 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+//colors
+  $landing-blue: #191F25;
+  $landing-pink: #CC2262;
+@import url(http://fonts.googleapis.com/css?family=Raleway:100);
+
+body {
+  overflow-x: hidden;
+}
+
 .div-center {
   text-align: center;
   margin-top: 5vh;
@@ -38,3 +49,77 @@ footer {
   margin-bottom: 30px;
 }
 
+
+//index
+.navbar-fixed-bottom {
+  background-color: rgba(0,0,0,0.5);
+  border: 0px solid transparent;
+}
+
+.origin-input-nav, .destination-input-nav, .input-date-nav {
+  background: rgba(0,0,0,0.5);
+  border: 0px solid transparent;
+  border-radius: 0px;
+  padding: 1.5em;
+  margin-left: 10px;
+}
+
+#bg{
+  height: 100vh; width: 100vw;
+  background-image: url(http://res.cloudinary.com/chi6rag/image/upload/v1422983295/mybackground_jmofqq.jpg);
+  background-size: cover;
+  position: fixed; top: 0; left: 0;
+  z-index: -20;
+}
+
+.landing-div{
+  height: 100vh; width: 100vw;
+  margin-top: 0px;
+  font-family: 'Raleway', sans-serif;
+  color: whitesmoke;
+  .container.heading{
+    color:white;
+    text-align: center;
+    font-size: 6em;
+    margin-top: 10vh;
+  }
+  .fa {
+    color: lightgrey;
+  }
+}
+
+.landing-div-two {
+   height: contain; width: 100vw;
+  background-color: $landing-blue;
+  font-family: 'Raleway', sans-serif;
+  #landing-page-more {
+    font-size: 2em; color:whitesmoke;
+    padding: 1em; padding-right: 0px;
+    margin-top: 0.5em;
+    text-align: justify;
+  }
+}
+
+.form-control {
+  border-radius: 0px;
+  color: $landing-blue; font-weight: bold;
+  width: 100%; padding: 20px;
+}
+
+  .subscribe-button {
+
+    margin-top: 10px;
+
+    background-color: $landing-pink; color: whitesmoke;
+
+    width: 100%; padding: 10px;
+
+    font-weight: bold;
+
+  }
+
+  #subscribe {
+    padding-top: 1em; padding-left: 1em;
+    margin-top: 2.5em; margin-left: 2.2em;
+    position: relative;top:2em;
+  }
