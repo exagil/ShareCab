@@ -1,0 +1,56 @@
+// no ride found
+body{
+background: url("http://wallpaperswa.com/thumbnails/detail/20130809/brown%20gaussian%20blur%20colors_wallpaperswa.com_15.jpg");
+height:100vh;width:100vw;
+background-size: cover;
+}
+#noridefound{
+  position:relative;
+  top:30%;
+  transform: translateY(-30%)
+}
+#noridefoundcontent{
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  text-align:justify;
+  margin-bottom: 2em;
+  font-size: 1.2em;
+  
+}
+
+.noridefoundlogin{
+ /* width:300px;
+  height:100px;*/
+  width: 20%;
+  margin: 0 auto;
+  padding: 15px;
+  background-color: transparent;
+  border-radius: 5px;
+  color: white;
+  border: 2px solid rgba(255,255,255,0.7);
+  text-align: center;
+  font-size: 1.2em;
+  font-family: 'Raleway', sans-serif; 
+   a {
+    text-decoration: none;
+    color:white;
+    &:hover{
+      color:#736356;
+
+    }
+   }
+   &:hover{
+    background-color:rgba(255,255,255,0.7);
+    border: 2px solid rgba(255,255,255,0.7);
+    color:#736356;
+    transition-duration:0.3s;
+    a{
+      color:#736356;
+      &:hover{
+        color:#736356;
+      }
+    }
+    }
+
+}
+

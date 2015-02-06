@@ -1,7 +1,14 @@
-<div class="container no_ride_found">
-  <p>Oops! Seems like there is no body who matches your route. Please enter your ride details so that we can match you with someone who looks for the same ride in future</p>
+<div class="container" id="noridefound">
+  <div class="row">
+    <div id="noridefoundcontent" class="col-xs-offset-1 col-xs-10"><p>Oops! Seems like there is no body who matches your route. Please enter your ride details so that we can match you with someone who looks for the same ride in future</p>
+    </div>
+  </div>
+  <div class="row">
+     <div class="noridefoundlogin "><%= link_to user_signed_in? ? "Create a Ride" : "Login and create a ride", user_signed_in? ? new_ride_path : user_omniauth_authorize_path(:facebook)%></div>
+  </div>
+</div>
+  <div class="footer navbar-fixed-bottom">
+  <img src="http://res.cloudinary.com/chi6rag/image/upload/v1423223237/img-footer_fdbmqb.png" alt="" />
 </div>
 
 
-<%= link_to "Create a Ride", user_signed_in? ? new_ride_path : user_omniauth_authorize_path(:facebook)%>
-<!-- Bad user experience. Ask the user to login and them ask him to create a new ride -->
