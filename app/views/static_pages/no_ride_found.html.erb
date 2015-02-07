@@ -4,11 +4,10 @@
     </div>
   </div>
   <div class="row">
-     <div class="noridefoundlogin "><%= link_to user_signed_in? ? "Create a Ride" : "Login and create a ride", user_signed_in? ? new_ride_path : user_omniauth_authorize_path(:facebook)%></div>
+     <div class="noridefoundlogin "><%= link_to user_signed_in? ? "Create a Ride" : "Login and Create a Ride", user_signed_in? ? new_ride_path : user_omniauth_authorize_path(:facebook)%></div>
   </div>
 </div>
-  <div class="footer navbar-fixed-bottom">
-  <img src="http://res.cloudinary.com/chi6rag/image/upload/v1423223237/img-footer_fdbmqb.png" alt="" />
-</div>
+
+<%= render partial: 'static_pages/footer' %>
 
 
