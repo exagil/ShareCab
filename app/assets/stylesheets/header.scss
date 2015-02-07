@@ -1,7 +1,15 @@
-#navbar-top{
+#navbar-home, #navbar-top{
   margin-bottom: 0px;
   border:none;
   border-radius: 0px;
   background: rgba(0,0,0,0.5);
+  li > a {
+    color: #FFF;
+  }
   // margin-top: 20px;
+}
+
+#navbar-top{
+  // background: rgba(158, 131, 102, 0.5);
+  background: transparent;
 }
