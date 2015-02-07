@@ -45,4 +45,8 @@ class Ride < ActiveRecord::Base
     end
     @rides_display
   end
+
+  def initiator
+    User.find(self.initiator_id)
+  end
 end
