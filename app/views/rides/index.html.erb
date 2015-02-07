@@ -15,28 +15,26 @@
       <% end %>
     </div>
 
-<table id="selected-rides">
-  <tr>
-    <th>ID</th>
+    <!-- <th>ID</th>
     <th>Origin</th>
     <th>Destination</th>
-    <th>Departure Date</th>
-  </tr>
+    <th>Departure Date</th> -->
 
-<% @rides.each do |ride| %>
-  <tr id="ride-<%= ride.id %>">
-    <td><%= link_to ride.id, user_signed_in? ? ride_path(ride) : user_omniauth_authorize_path(:facebook) %></td>
-    <td><%= link_to ride.origin, user_signed_in? ? ride_path(ride) : user_omniauth_authorize_path(:facebook) %></td>
-    <td><%= link_to ride.destination, user_signed_in? ? ride_path(ride) : user_omniauth_authorize_path(:facebook) %></td>
-    <td><%= link_to ride.departure_date, user_signed_in? ? ride_path(ride) : user_omniauth_authorize_path(:facebook) %></td>
-  </tr>
+<div class="col-md-8">
 
-
-<% end %>
-</table>
-</div>
-</div>
-
+   <% @rides.each do |ride| %>
+  <a href="<%= ride_path(ride) %>">
+    <div class="well" id="ride-<%= ride.id %>">
+      <%= ride.id %>
+      <%= ride.origin %>
+      <%= ride.destination %>
+      <%= ride.departure_date %>
+    </div>
+  </a>
+  <% end %>
+</div><!-- end of col-md-8 for rides listing -->
+</div><!-- row end -->
+</div><!-- container end -->
  <script type="text/javascript">
   $('#timepicker1').timepicker();
   $('#timepicker2').timepicker();
