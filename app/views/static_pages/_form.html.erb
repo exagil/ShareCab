@@ -10,11 +10,11 @@
           <%= hidden_field_tag :origin_lng, params[:o_dummy_4], class: 'form-control' %>
         </div>
         <div class="form-group fill-destination">
-          <%= text_field_tag :destination, params[:d_dummy], class: 'form-control  destination-input-nav', placeholder: "Destination" %>
-          <%= hidden_field_tag :lat, params[:d_dummy_2], class: 'form-control destination-lat' %>
-          <%= hidden_field_tag :lng, params[:o_dummy_3], class: 'form-control destination-lng' %>
-          <%= hidden_field_tag :destination_lat, params[:o_dummy_4], class: 'form-control' %>
-          <%= hidden_field_tag :destination_lng, params[:o_dummy_4], class: 'form-control' %>
+          <%= text_field_tag :destination, params[:destination], class: 'form-control  destination-input-nav', placeholder: "Destination" %>
+          <%= hidden_field_tag :lat, params[:d_dummy_1], class: 'form-control destination-lat' %>
+          <%= hidden_field_tag :lng, params[:d_dummy_2], class: 'form-control destination-lng' %>
+          <%= hidden_field_tag :destination_lat, params[:d_dummy_3], class: 'form-control' %>
+          <%= hidden_field_tag :destination_lng, params[:d_dummy_4], class: 'form-control' %>
         </div>
         <div class="form-group">
           <input type="date" class="form-control input-date-nav" id="date" placeholder="Date" name="date">
