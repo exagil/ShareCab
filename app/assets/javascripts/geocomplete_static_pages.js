@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
   // Origin
   $("#origin").on('click', function(){
@@ -70,7 +71,7 @@ $(document).ready(function(){
 
 
   // Passing values to origin_lat and origin_lng
-  $("#find").on('click', function(){
+  $("#find-pal").on('click', function(){
     $("#origin_lat").val($(".origin-lat").val());
     $("#origin_lng").val($(".origin-lng").val());
     $("#destination_lat").val($(".destination-lat").val());
