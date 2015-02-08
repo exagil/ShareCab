@@ -47,6 +47,6 @@ class Ride < ActiveRecord::Base
   end
 
   def initiator
-    User.find(self.initiator_id)
+    User.find(self.initiator_id) if self.initiator_id
   end
 end

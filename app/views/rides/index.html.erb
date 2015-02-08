@@ -27,7 +27,7 @@
 
 <div class="col-md-8">
    <% @rides.each do |ride| %>
-  <a href="<%= ride_path(ride) %>">
+  <a href="<%= user_signed_in? ? ride_path(ride) : user_omniauth_authorize_path(:facebook) %>">
     <div class="well" id="ride-<%= ride.id %>">
       <%= image_tag ride.initiator.image %>
       <%= ride.id %>
