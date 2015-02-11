@@ -9,35 +9,95 @@
 
     <div class="col-md-2">
       <% if user_signed_in? %>
-        <div class="bfh-timepicker" id="timepicker1" data-time="now"></div>
-        <div class="bfh-timepicker" id="timepicker2" data-time="now">
+        <div id="time-range">
+            <p>Time Range: <span class="slider-time">12:00 AM</span> - <span class="slider-time2">11:59 PM</span>
+
+            </p>
+            <div class="sliders_step1">
+                <div id="slider-range"></div>
+            </div>
         </div>
       <% end %>
     </div>
 
-<table id="selected-rides">
-  <tr>
-    <th>ID</th>
+    <!-- <th>ID</th>
     <th>Origin</th>
     <th>Destination</th>
-    <th>Departure Date</th>
-  </tr>
+    <th>Departure Date</th> -->
 
-<% @rides.each do |ride| %>
-  <tr id="ride-<%= ride.id %>">
-    <td><%= link_to ride.id, user_signed_in? ? ride_path(ride) : user_omniauth_authorize_path(:facebook) %></td>
-    <td><%= link_to ride.origin, user_signed_in? ? ride_path(ride) : user_omniauth_authorize_path(:facebook) %></td>
-    <td><%= link_to ride.destination, user_signed_in? ? ride_path(ride) : user_omniauth_authorize_path(:facebook) %></td>
-    <td><%= link_to ride.departure_date, user_signed_in? ? ride_path(ride) : user_omniauth_authorize_path(:facebook) %></td>
-  </tr>
-
-
-<% end %>
-</table>
-</div>
-</div>
-
+<div class="col-md-8">
+   <% @rides.each do |ride| %>
+  <a href="<%= user_signed_in? ? ride_path(ride) : user_omniauth_authorize_path(:facebook) %>">
+    <div class="well" id="ride-<%= ride.id %>">
+      <%= image_tag ride.initiator.image %>
+      <%= ride.id %>
+      <%= ride.origin %>
+      <%= ride.destination %>
+      <%= ride.departure_date %>
+    </div>
+  </a>
+  <% end %>
+</div><!-- end of col-md-8 for rides listing -->
+</div><!-- row end -->
+</div><!-- container end -->
  <script type="text/javascript">
-  $('#timepicker1').timepicker();
-  $('#timepicker2').timepicker();
+  $("#slider-range").slider({
+    range: true,
+    min: 0,
+    max: 1440,
+    step: 15,
+    values: [0, 1440],
+    slide: function (e, ui) {
+        var hours1 = Math.floor(ui.values[0] / 60);
+        var minutes1 = ui.values[0] - (hours1 * 60);
+
+        if (hours1.length == 1) hours1 = '0' + hours1;
+        if (minutes1.length == 1) minutes1 = '0' + minutes1;
+        if (minutes1 == 0) minutes1 = '00';
+        if (hours1 >= 12) {
+            if (hours1 == 12) {
+                hours1 = hours1;
+                minutes1 = minutes1 + " PM";
+            } else {
+                hours1 = hours1 - 12;
+                minutes1 = minutes1 + " PM";
+            }
+        } else {
+            hours1 = hours1;
+            minutes1 = minutes1 + " AM";
+        }
+        if (hours1 == 0) {
+            hours1 = 12;
+            minutes1 = minutes1;
+        }
+
+
+
+        $('.slider-time').html(hours1 + ':' + minutes1);
+
+        var hours2 = Math.floor(ui.values[1] / 60);
+        var minutes2 = ui.values[1] - (hours2 * 60);
+
+        if (hours2.length == 1) hours2 = '0' + hours2;
+        if (minutes2.length == 1) minutes2 = '0' + minutes2;
+        if (minutes2 == 0) minutes2 = '00';
+        if (hours2 >= 12) {
+            if (hours2 == 12) {
+                hours2 = hours2;
+                minutes2 = minutes2 + " PM";
+            } else if (hours2 == 24) {
+                hours2 = 11;
+                minutes2 = "59 PM";
+            } else {
+                hours2 = hours2 - 12;
+                minutes2 = minutes2 + " PM";
+            }
+        } else {
+            hours2 = hours2;
+            minutes2 = minutes2 + " AM";
+        }
+
+        $('.slider-time2').html(hours2 + ':' + minutes2);
+    }
+});
 </script>

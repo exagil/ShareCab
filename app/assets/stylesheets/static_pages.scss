@@ -58,6 +58,10 @@ footer {
   border:0px solid transparent;
 }
 
+.toggle-map {
+  // display:none;
+}
+
 
 .origin-input-nav, .destination-input-nav, .input-date-nav {
   // background: rgba(0,0,0,0.5);
@@ -106,7 +110,7 @@ footer {
     color:white;
     text-align: center;
     font-size: 6em;
-    margin-top: 10vh;
+    margin-top: 5vh;
     font-family: 'Raleway', sans-serif;
   }
   .fa {
@@ -235,4 +239,6 @@ footer {
     }
 
 }
+
+
 

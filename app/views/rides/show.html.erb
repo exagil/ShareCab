@@ -1,11 +1,24 @@
 <%= render partial: 'rides/routemap' %>
 <div class="container">
-  <%= link_to "Join", ride_path(@ride) , method: :patch %>
-  <%= render partial: 'rides/comment', collection: @comments %>
   <div class="row">
+    <div class="col-md-8 well">
+      <%= @ride.origin %> => <%= @ride.destination %>
+    </div>
+    <div class="col-md-4 well">
+      <div class="row">
+      <div class="col-md-6 well"><strong>Departure Date:</strong><br/><%= @ride.departure_date %></div>
+      <div class="col-md-6 well"><strong>Departure Time:</strong><br/><%= Time.now.strftime('%H') %></div>
+      <div class="col-md-12"><strong>Availale Seats: </strong><br/><%= @ride.number_of_seats %></div>
+      </div>
+
+  <%= link_to "Join", ride_path(@ride) , method: :patch, class: "btn btn-block btn-primary" %>
+    </div>
+  </div><!-- row ends here -->
+  <div class="row">
+  <%= render partial: 'rides/comment', collection: @comments %>
     <%= form_for([@ride, @comment]) do |f| %>
       <%= f.text_field :body, class: 'form-control' %>
       <%= f.submit :submit %>
     <% end %>
-  </div>
-</div>
+  </div><!-- row ends here -->
+</div><!-- end of container -->
