@@ -4,14 +4,14 @@
   <div class="row">
 
     <div class="col-md-offset-1 col-md-10">
-    <%= render partial: 'static_pages/form' %>
+    <%= render partial: 'filter_form' %>
     </div>
 
     <div class="col-md-2">
       <% if user_signed_in? %>
         <div id="time-range">
-            <p>Time Range: <span class="slider-time">12:00 AM</span> - <span class="slider-time2">11:59 PM</span>
-
+            <p>
+                Time Range: <span class="slider-time">12:00 AM</span> - <span class="slider-time2">11:59 PM</span>
             </p>
             <div class="sliders_step1">
                 <div id="slider-range"></div>
@@ -40,6 +40,8 @@
 </div><!-- end of col-md-8 for rides listing -->
 </div><!-- row end -->
 </div><!-- container end -->
+
+
  <script type="text/javascript">
   $("#slider-range").slider({
     range: true,
@@ -98,6 +100,8 @@
         }
 
         $('.slider-time2').html(hours2 + ':' + minutes2);
+        $("#time_left").val(hours1 + ':' + minutes1);
+        $("#time_right").val(hours2 + ':' + minutes2);
     }
 });
 </script>
