@@ -38,9 +38,11 @@ class Ride < ActiveRecord::Base
     rides.each do |ride|
       # distance between entered origin and db origin
       distance_origin = Geocoder::Calculations.distance_between([origin_lat, origin_lng],[ride.origin_lat, ride.origin_long])
-      distance_destination = Geocoder::Calculations.distance_between([destination_lat, destination_lng],[ride.destination_lat, ride.destination_long])
-      if distance_origin < range && distance_destination < range
-        @rides_display << ride
+      if distance_origin < range
+        distance_destination = Geocoder::Calculations.distance_between([destination_lat, destination_lng],[ride.destination_lat, ride.destination_long])
+        if distance_destination < range
+          @rides_display << ride
+        end
       end
     end
     @rides_display
