@@ -40,9 +40,13 @@ footer {
   list-style: none;
 }
 
-.map-canvas-origin, .map-canvas-destination{ 
+.map-canvas-origin, .map-canvas-destination, #map-route{ 
   width: 100vw;
   height: 378px;
+}
+
+#map-route{
+display:none;
 }
 
 .form-inline {

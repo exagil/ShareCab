@@ -69,15 +69,21 @@ $(document).ready(function(){
     });
   }); // end of destination   
 
+    var mapCanvasRoute = "<div id='map-route'></div>"
     $("#date").focus(function(){
     //passing values to origin_lat, origin_lng when clicked on date
     $("#origin_lat").val($(".origin-lat").val());
     $("#origin_lng").val($(".origin-lng").val());
     $("#destination_lat").val($(".destination-lat").val());
     $("#destination_lng").val($(".destination-lng").val());
+    $(".map-canvas-destination").remove();
+    $("#carousel-example-generic").remove();
+    $(".toggle-map").append(mapCanvasRoute);
+    $("#map-route").css( "display", "block" );
   });
 
-  $("#date").on('click', function(){
+  $("#date").change(function(){
+    
     //passing values to origin_lat, origin_lng when clicked on date
     styles=
 
@@ -125,7 +131,7 @@ $(document).ready(function(){
 
       // var marker;
       function initialize() {
-      map = new google.maps.Map(document.getElementById('map-canvas-destination')[0], {
+      map = new google.maps.Map(document.getElementById('map-route'), {
           zoom: 10,
           // center: new google.maps.LatLng(-33.92, 151.25),
           mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -137,8 +143,8 @@ $(document).ready(function(){
 
       directionsDisplay.setMap(map);
 
-      var start = new google.maps.LatLng($("#origin-lat").val(), $("#origin-lng").val());
-      var end = new google.maps.LatLng($("#destination-lat").val(), $("#destination-lng").val());
+      var start = new google.maps.LatLng($("#origin_lat").val(), $("#origin_lng").val());
+      var end = new google.maps.LatLng($("#destination_lat").val(), $("#destination_lng").val());
       var request = {
           origin: start,
           destination: end,
@@ -151,7 +157,9 @@ $(document).ready(function(){
       });
       }
       // google.maps.event.addDomListener(window, 'load', initialize);
-      $('.map-canvas-destination').empty();
+  
+      // $('.map-canvas-destination').empty();
+      // alert("detects change");
       initialize();
 
       })
