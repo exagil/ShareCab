@@ -69,13 +69,16 @@ $(document).ready(function(){
     });
   }); // end of destination   
 
-  $("#date").on('click', function(){
+    $("#date").focus(function(){
     //passing values to origin_lat, origin_lng when clicked on date
     $("#origin_lat").val($(".origin-lat").val());
     $("#origin_lng").val($(".origin-lng").val());
     $("#destination_lat").val($(".destination-lat").val());
     $("#destination_lng").val($(".destination-lng").val());
+  });
 
+  $("#date").on('click', function(){
+    //passing values to origin_lat, origin_lng when clicked on date
     styles=
 
 [
