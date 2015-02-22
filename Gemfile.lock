@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    Instamojo-rb (0.1.0)
     actionmailer (4.2.0)
       actionpack (= 4.2.0)
       actionview (= 4.2.0)
@@ -250,6 +251,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  Instamojo-rb
   annotate
   bootstrap-sass
   byebug
