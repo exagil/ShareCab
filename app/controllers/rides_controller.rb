@@ -28,6 +28,13 @@ class RidesController < ApplicationController
       session[:origin_lng] = params[:origin_lng]
       session[:destination_lat] = params[:destination_lat]
       session[:destination_lng] = params[:destination_lng]
+      if params[:date]
+        session[:date] = params[:date] if params[:date]
+        session[:date_filter] = nil
+      elsif params[:date_filter]
+        session[:date] = nil
+        session[:date_filter] = params[:date_filter]
+      end
     end
     @rides = Ride.get_suitable_rides(5, session[:origin_lat],session[:origin_lng], session[:destination_lat],session[:destination_lng])
     if(@rides.length<1) # no rides
@@ -36,7 +43,6 @@ class RidesController < ApplicationController
   end
 
   def new
-
     @ride = Ride.new
   end
 
