@@ -17,6 +17,7 @@
 #  dob                :date
 #  provider           :string
 #  uid                :string
+#  image              :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

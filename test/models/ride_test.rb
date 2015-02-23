@@ -16,6 +16,7 @@
 #  completed                :boolean
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null
+#  initiator_id             :integer
 #
 
 require 'test_helper'

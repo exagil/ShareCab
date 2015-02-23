@@ -17,6 +17,7 @@
 #  dob                :date
 #  provider           :string
 #  uid                :string
+#  image              :string
 #
 
 class User < ActiveRecord::Base
