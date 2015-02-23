@@ -1,19 +1,30 @@
 class RidesController < ApplicationController
   before_action :restrict_access, except: [:index]
+  
   def create
+    date = Ride.form_to_rails_date(params[:date])
+    time = Ride.form_to_rails_time(params[:date], params[:time])
+    # Ride.create(
+    #   :origin=>params[:origin],
+    #   :origin_lat=>params[:origin_lat],
+    #   :origin_long=>params[:origin_lng],
+    #   :destination=>params[:destination],
+    #   :destination_lat=>params[:destination_lat],
+    #   :destination_long=>params[:destination_lng],
+    #   :departure_date=>params[:date],
+    #   :initiator_id=>current_user.id,
+    #   :departure_date=>Ride.form_to_rails_date(params[:date]),
+    #   :departure_time=>params[:time]
+    # )
+    ride = Ride.new(ride_params)
+    ride.origin_long = params[:origin_lng]
+    ride.destination_long = params[:destination_lng]
+    ride.departure_date = date
+    ride.departure_time = time
+    ride.initiator_id = current_user.id
+    ride.save
     byebug
-    Ride.create(
-      :origin=>params[:origin],
-      :origin_lat=>params[:origin_lat],
-      :origin_long=>params[:origin_lng],
-      :destination=>params[:destination],
-      :destination_lat=>params[:destination_lat],
-      :destination_long=>params[:destination_lng],
-      :departure_date=>params[:date],
-      :initiator_id=>current_user.id,
-      :departure_date=>Ride.form_to_rails_date(params[:date]),
-      :departure_time=>params[:time]
-    )
+    
     redirect_to static_pages_successful_ride_creation_url
   end
 
@@ -75,6 +86,6 @@ class RidesController < ApplicationController
 
   private
     def ride_params
-      params.require(:ride).permit(:origin, :destination, :origin_lat, :origin_lng, :destination, :destination_lat, :destination_lng, :departure_date, :departure_time)
+      params.permit(:origin, :destination, :origin_lat, :destination_lat)
     end
 end

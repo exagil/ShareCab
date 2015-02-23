@@ -25,8 +25,8 @@ class Ride < ActiveRecord::Base
 
   validates :origin, presence: true
   validates :destination, presence: true
-  validates :departure_date, presence: true
-  validates :departure_time, format: { with: /(\d+)\s:\s(\d+)\s:\s(AM|PM)/ }, :length => {:minimum => 4}
+  # validates :departure_date, presence: true
+  # validates :departure_time, format: { with: /(\d+)\s:\s(\d+)\s:\s(AM|PM)/ }, :length => {:minimum => 4}
 
   # geocoded_by :destination, :latitude => :destination_lat, :longitude => :destination_long
   # after_validation :geocode
