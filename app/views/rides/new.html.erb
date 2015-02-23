@@ -1,6 +1,9 @@
 <%= render partial: 'rides/routemap' %>
 <div class="container">
 <!-- form start -->
+<% if @errors && !@errors.empty? %>
+  <%= render partial: 'rides/error' %>
+<% end %>
 <%= form_tag(rides_path, class: 'form-inline', method: :post) do %>
 <div class="row">
   <div class="form-group fill-origin col-sm-offset-2 col-sm-4">

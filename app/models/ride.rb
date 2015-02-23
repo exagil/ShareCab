@@ -81,4 +81,13 @@ class Ride < ActiveRecord::Base
   def initiator
     User.find(self.initiator_id) if self.initiator_id
   end
+
+  def self.validates_presence_of_ride_params(params)
+    errors = ActiveModel::Errors.new(self)
+    errors.add(:origin, "cannot be blank") if params[:origin].nil? || params[:origin].blank?
+    errors.add(:destination, "cannot be blank") if params[:destination].nil? || params[:destination].blank?
+    errors.add(:departure_time, "cannot be blank") if params[:time].nil? || params[:time].blank?
+    errors.add(:departure_time, "cannot be blank") if params[:date].nil? || params[:date].blank?
+    errors
+  end
 end
