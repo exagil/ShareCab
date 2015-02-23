@@ -42,7 +42,7 @@ class RidesController < ApplicationController
         session[:date_filter] = params[:date_filter]
       end
     end
-    @rides = Ride.get_suitable_rides(5, session[:origin_lat],session[:origin_lng], session[:destination_lat],session[:destination_lng])
+    @rides = Ride.get_suitable_rides(5, session[:origin_lat],session[:origin_lng], session[:destination_lat],session[:destination_lng], (session[:date_filter] || session[:date]).to_date)
     if(@rides.length<1) # no rides
       redirect_to static_pages_no_ride_found_url
     end

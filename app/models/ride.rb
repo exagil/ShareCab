@@ -63,8 +63,8 @@ class Ride < ActiveRecord::Base
     end
   end
 
-  def self.get_suitable_rides(range, origin_lat,origin_lng, destination_lat, destination_lng)
-    rides = self.all
+  def self.get_suitable_rides(range, origin_lat,origin_lng, destination_lat, destination_lng, date)
+    rides = self.where(departure_date: date)
     @rides_display = []
     rides.each do |ride|
       # distance between entered origin and db origin
