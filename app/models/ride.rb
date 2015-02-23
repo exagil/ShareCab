@@ -23,6 +23,11 @@ class Ride < ActiveRecord::Base
   has_many :users, through: :ridings
   has_many :comments
 
+  validates :origin, presence: true
+  validates :destination, presence: true
+  validates :departure_date, presence: true
+  validates :departure_time, format: { with: /(\d+)\s:\s(\d+)\s:\s(AM|PM)/ }, :length => {:minimum => 4}
+
   # geocoded_by :destination, :latitude => :destination_lat, :longitude => :destination_long
   # after_validation :geocode
 
@@ -31,6 +36,31 @@ class Ride < ActiveRecord::Base
   #   self.origin_lat = coords[0]
   #   self.origin_long = coords[1]
   # end
+
+  def self.form_to_rails_date(date)
+    date.to_date
+  end
+
+  def self.form_to_rails_time(form_date, form_time)
+    form_date_regex = form_date.match(/^((\d+)-(\d+)-(\d+))$/)
+    day   = form_date_regex[2]
+    month = form_date_regex[3]
+    year  = form_date_regex[4]
+
+    form_time = form_time.gsub(" ", "")
+    form_time_regex = form_time.match(/^((\d+):(\d+):(AM|PM))$/)
+    hour = form_time_regex[2]
+    minute = form_time_regex[3]
+    am_pm = form_time_regex[4]
+
+    if(am_pm == "AM")
+      return Time.new(year, month, day, hour, minute, 0, "+05:30")
+    elsif(am_pm == "PM" && hour == "12")
+      return Time.new(year, month, day, hour, minute, 0, "+05:30")
+    elsif(am_pm == "PM" && hour != "12")
+      return Time.new(year, month, day, hour, minute, 0, "+05:30") + 43200
+    end
+  end
 
   def self.get_suitable_rides(range, origin_lat,origin_lng, destination_lat, destination_lng)
     rides = self.all

@@ -40,6 +40,9 @@
 
 $(document).ready(function(){
   $('#time').timepicki();
+  $("#date").datepicker({
+    dateFormat: "dd-mm-yy"
+  });
   // Origin
   // $("#origin").on('click', function(){
   //   if (!($('.map-canvas-origin').length)){ // origin map not present

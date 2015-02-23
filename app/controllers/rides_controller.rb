@@ -1,16 +1,20 @@
 class RidesController < ApplicationController
   before_action :restrict_access, except: [:index]
   def create
-    Ride.create(:origin=>params[:origin],
-                :destination=>params[:destination],
-                :origin_lat=>params[:origin_lat],
-                :origin_long=>params[:origin_lng],
-                :destination_lat=>params[:destination_lat],
-                :destination_long=>params[:destination_lng],
-                :departure_date=>params[:date],
-                :initiator_id=>current_user.id)
+    byebug
+    Ride.create(
+      :origin=>params[:origin],
+      :origin_lat=>params[:origin_lat],
+      :origin_long=>params[:origin_lng],
+      :destination=>params[:destination],
+      :destination_lat=>params[:destination_lat],
+      :destination_long=>params[:destination_lng],
+      :departure_date=>params[:date],
+      :initiator_id=>current_user.id,
+      :departure_date=>Ride.form_to_rails_date(params[:date]),
+      :departure_time=>params[:time]
+    )
     redirect_to static_pages_successful_ride_creation_url
-    # current_user.rides.create(origin: , origin_lat: nil, origin_long: nil, destination: nil, destination_lat: nil, destination_long: nil, departure_date: nil, departure_time: nil, number_of_seats: nil, number_of_seats_occupied: nil, completed: nil, created_at: nil, updated_at: nil, initiater_id: nil)
   end
 
   def index
@@ -71,6 +75,6 @@ class RidesController < ApplicationController
 
   private
     def ride_params
-      params.require(:ride).permit(:origin, :destination, :origin_lat, :origin_lng, :destination, :destination_lat, :destination_lng, :date)
+      params.require(:ride).permit(:origin, :destination, :origin_lat, :origin_lng, :destination, :destination_lat, :destination_lng, :departure_date, :departure_time)
     end
 end
