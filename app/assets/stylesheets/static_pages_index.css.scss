@@ -7,13 +7,16 @@
   structure
   ---------
 
+  Please follow the SASS structure strictly
+
   - div.static_pages_index
     - div.one
+      - video#bgvid
       - nav#navbar-standard
         - a.navbar-brand
         - div.navbar-collapse
       - div.middle-header
-    - div.findmycabform
+      - div.findmycabform
     - div.two
 
 */
@@ -32,19 +35,20 @@
       padding-left: 0px;
       padding-right: 0px;
       
-      video#bgvid {
-        position: fixed; top: -20; left: 0;
-        /*min-width: inherit; min-height: inherit;*/
-        width: 100vw; height: auto;
-        z-index: -1000;
-        /*background: brown no-repeat;*/
-        background-size: cover;
-      }
-
       /* div.one */
       .one {
-        height: 75vh;
+        height: 90vh;
         background-color: rgba(0,0,0,.3);
+
+        /* video#bgvid */
+        video#bgvid {
+          position: fixed; top: -20; left: 0;
+          width: 100vw; height: auto;
+          z-index: -1;
+          /*background: brown no-repeat;*/
+          background-size: cover;
+        }
+        /* /video#bgvid */
 
         /* nav#navbar-standard */
         #navbar-standard {
@@ -104,44 +108,45 @@
           background-color: #93bfc1;
         };
 
+        /* div.findmycabform */
+        .findmycabform {
+          height: 15vh; width: 100vw;
+          background-color: rgba(0,0,0,.5);
+          position: absolute; bottom: 10vh;
+
+          .search-form{
+            height: 7.5vh; width: 14em;
+            border: none; border-radius: 1px;
+            transform: translateY(50%);
+            margin: 0px;
+          }
+
+          button.search-form {
+            color: white;
+          }
+
+          .form-group {
+            margin: 0px;
+          }
+
+          #find-button {
+            background-color: #007A87; border: 0px;
+            width: 9em;
+          }
+
+          .glyphicon-search {
+            color: white;
+          }
+        }
+
+        *::selection {
+          background-color: #93bfc1
+        }
+
+        /* /div.findmycabform */
+
       }
       /* /div.one */
-
-      /* div.findmycabform */
-      .findmycabform {
-        height: 15vh; width: 100vw;
-        background-color: rgba(0,0,0,.5);
-
-        .search-form{
-          height: 7.5vh; width: 14em;
-          border: none; border-radius: 1px;
-          transform: translateY(50%);
-          margin: 0px;
-        }
-
-        button.search-form {
-          color: white;
-        }
-
-        .form-group {
-          margin: 0px;
-        }
-
-        #find-button {
-          background-color: #007A87; border: 0px;
-          width: 9em;
-        }
-
-        .glyphicon-search {
-          color: white;
-        }
-      }
-
-      *::selection {
-        background-color: #93bfc1
-      }
-
-      /* /div.findmycabform */
 
       /* div.two */
       .two {

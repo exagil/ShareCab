@@ -1,21 +1,21 @@
 <div class="static_pages_index">
   <div class="container-fluid">
-    <video autoplay loop poster="polina.jpg" id="bgvid">
-      <source src="https://d1m4vfavma9vzb.cloudfront.net/suggestadoc/images/ziffi/media/ziffi-cities.mp4" type="video/mp4">
-    </video>
+    
     <!-- div.one -->
     <div class="one">
+      <video autoplay loop poster="" id="bgvid">
+        <source src="https://d1m4vfavma9vzb.cloudfront.net/suggestadoc/images/ziffi/media/ziffi-cities.mp4" type="video/mp4">
+      </video>
       <%= render partial: "layouts/header" %>
       <div class="middle-header">
         <h1 class="up">Let's travel together</h1>
         <h5 class="down">and save money and environment among other things</h5>
       </div>
+      <!-- div.findmycabform -->
+      <%= render partial: 'static_pages/static_pages_index_find_my_cab_form' %>
+      <!-- /div.findmycabform -->
     </div>
     <!-- /div.one -->
-
-    <!-- div.findmycabform -->
-    <%= render partial: 'static_pages/static_pages_index_find_my_cab_form' %>
-    <!-- /div.findmycabform -->
 
     <!-- div.two -->
     <div class="two"></div>
