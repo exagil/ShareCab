@@ -4,18 +4,16 @@ $(document).ready(function(){
     if (!($('.map-canvas-origin').length)){ // origin map not present
       console.log("Origin Map Number: " + $('.map-canvas-origin').length);
       var mapCanvasOrigin = "<div class='map-canvas-origin'></div>";
-      // $(".toggle-map").append(mapCanvasOrigin);
 
       // get rid of all the material to be deleted
       $(".map-canvas-destination").remove();
       $("#bgvid").fadeOut(1000, function(){$(this).remove();});
       $(".middle-header").fadeOut(1000, function(){$(this).remove();});
-      console.log("removed stuff");
+      $(".one").prepend(mapCanvasOrigin).fadeIn(1000);
+      $(".map-canvas-origin").fadeIn(1000);
     }
     else{ // origin map present
       $(".map-canvas-destination").remove();
-      // var mapCanvasOrigin = "<div class='map-canvas'></div>"
-      // $(".toggle-map").append(mapCanvasOrigin);
     }
 
     $(this).geocomplete({
