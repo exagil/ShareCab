@@ -1,0 +1,24 @@
+    <div class="container findmycabform" style="text-align: center;">
+      <%= form_tag(rides_path, class: 'form-inline col-md-12', method: :get) do %>
+        <div class="form-group fill-origin">
+          <%= text_field_tag :origin, params[:origin], class: 'form-control origin-input-nav search-form', placeholder: "From eg: Gachibowli.." %>
+          <%= hidden_field_tag :lat, params[:o_dummy_1], class: 'form-control origin-lat' %>
+          <%= hidden_field_tag :lng, params[:o_dummy_2], class: 'form-control origin-lng' %>
+          <%= hidden_field_tag :origin_lat, params[:o_dummy_3], class: 'form-control' %>
+          <%= hidden_field_tag :origin_lng, params[:o_dummy_4], class: 'form-control' %>
+        </div>
+        <div class="form-group fill-destination">
+          <%= text_field_tag :destination, params[:destination], class: 'form-control  destination-input-nav search-form', placeholder: "To eg: Hitech City.." %>
+          <%= hidden_field_tag :lat, params[:d_dummy_1], class: 'form-control destination-lat' %>
+          <%= hidden_field_tag :lng, params[:d_dummy_2], class: 'form-control destination-lng' %>
+          <%= hidden_field_tag :destination_lat, params[:d_dummy_3], class: 'form-control' %>
+          <%= hidden_field_tag :destination_lng, params[:d_dummy_4], class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control input-date-nav search-form" id="date" placeholder="On this date.." name="date">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default search-form" id="find-button">Find My Cab</button>
+        </div>
+      <% end %>
+    </div>
