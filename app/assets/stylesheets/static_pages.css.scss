@@ -25,17 +25,53 @@
         background-size: cover;
       }
 
+      /* div.one */
       .one {
         height: 75vh;
         background-color: rgba(0,0,0,.3);
       }
+      /* /div.one */
 
+      /* div.findmycabform */
+      .findmycabform {
+        height: 15vh; width: 100vw;
+        background-color: rgba(0,0,0,.5);
+
+        .search-form{
+          height: 7.5vh; width: 14em;
+          border: none; border-radius: 1px;
+          transform: translateY(50%);
+          margin: 0px;
+        }
+
+        button.search-form {
+          color: white;
+        }
+
+        .form-group {
+          margin: 0px;
+        }
+
+        #find-button {
+          background-color: #007A87; border: 0px;
+          width: 9em;
+        }
+
+        .glyphicon-search {
+          color: white;
+        }
+      }
+      /* /div.findmycabform */
+
+      /* div.two */
       .two {
         height: 100vh;
         background-color: #EDEFED;
       }
+      /* /div.two */
       
     }
+    /* /div.container-fluid */
   }
 /* end static_pages_index */
 
