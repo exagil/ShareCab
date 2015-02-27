@@ -2,13 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/*
+  structure
+  ---------
+
+  - div.static_pages_index
+    - 
+
+
+*/
 
 //colors
   $landing-blue: #191F25;
   $landing-pink: #CC2262;
 @import url(http://fonts.googleapis.com/css?family=Raleway:100,400,700);
 
-/* static_pages_index */
+/* div.static_pages_index */
   .static_pages_index {
     width: 100vw;
     overflow-x: hidden;
@@ -63,6 +72,27 @@
 
         }
         /* /nav#navbar-standard */
+
+        /* div.middle-header */
+        .middle-header {
+          width: 100%; text-align: center;
+          color: white; font-weight: bold;
+          font-family: Raleway, sans-serif;
+          position: relative; top: 32%;
+
+          h1.up {
+            font-size: 3.5em;
+            font-weight: bold;
+            text-transform: uppercase;
+          }
+
+          h5.down {
+            font-size: 1.4em;
+            font-weight: bold;
+          }
+
+        }
+        /* /div.middle-header */
 
       }
       /* /div.one */
