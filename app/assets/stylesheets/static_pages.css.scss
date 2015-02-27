@@ -11,6 +11,7 @@
 /* static_pages_index */
   .static_pages_index {
     width: 100vw;
+    overflow-x: hidden;
 
     .container-fluid{
       padding-left: 0px;
@@ -29,6 +30,40 @@
       .one {
         height: 75vh;
         background-color: rgba(0,0,0,.3);
+
+        /* nav#navbar-standard */
+        #navbar-standard {
+          background-color: transparent;
+          border: none;
+          margin-bottom: 0px;
+
+          /* a.navbar-brand */
+          .navbar-brand {
+            padding: 1em; padding-left: 1.6em;
+            color: white; font-weight: bold;
+            font-family: Comfortaa, sans-serif;
+            font-size: 2em;
+          }
+          /* /a.navbar-brand */
+
+          /* div.navbar-collapse */
+          div.navbar-collapse {
+            ul.nav.navbar-nav.navbar-right {
+              padding: 1em; padding-right: 1.6em;
+              
+              a {
+                color: white;
+                &:hover {
+                  color: white;
+                }
+              }
+            }
+          }
+          /* /div-navbar-collapse */
+
+        }
+        /* /nav#navbar-standard */
+
       }
       /* /div.one */
 
@@ -69,7 +104,7 @@
         background-color: #EDEFED;
       }
       /* /div.two */
-      
+
     }
     /* /div.container-fluid */
   }
