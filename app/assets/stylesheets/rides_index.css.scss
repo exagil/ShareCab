@@ -1,0 +1,52 @@
+// Place all the styles related to the static_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*
+
+  structure
+  ---------
+
+  Please follow the SASS structure strictly
+
+  - div.rides_index
+    - div.one
+    - div.two
+
+*/
+
+/* div.rides_index */
+  div.rides-index {
+    min-height: 100vh; width: 100vw;
+
+    /* nav#navbar-standard */
+    #navbar-standard {
+      margin-bottom: 0px;
+
+      /* a.navbar-brand */
+      .navbar-brand {
+        padding: 1em; padding-left: 1.6em;
+        color: #6CAFF5; font-weight: bold;
+        font-family: Comfortaa, sans-serif;
+        font-size: 2em;
+      }
+      /* /a.navbar-brand */
+
+      /* div.navbar-collapse */
+      div.navbar-collapse {
+        ul.nav.navbar-nav.navbar-right {
+          padding: 1em; padding-right: 1.6em;
+          
+          a {
+            color: #737373;
+            &:hover {
+              color: #737373;
+            }
+          }
+        }
+      }
+      /* /div-navbar-collapse */
+    }
+    /* /nav#navbar-standard */
+  }
+/* /div.rides_index */

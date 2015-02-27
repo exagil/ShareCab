@@ -1,49 +1,53 @@
-<%= render partial: 'rides/routemap' %>
+<!-- div.rides-index -->
+<div class="rides-index">
+  <%= render partial: 'layouts/header' %>
+  <%= render partial: 'rides/routemap' %>
 
-<div class="container">
-  <div class="row">
+    <div class="container">
+      <div class="row">
 
-    <div class="col-md-offset-1 col-md-10">
-    <%= render partial: 'filter_form' %>
-    </div>
-
-    <div class="col-md-2">
-      <% if user_signed_in? %>
-        <div id="time-range">
-            <p>
-                Time Range: <span class="slider-time">12:00 AM</span> - <span class="slider-time2">11:59 PM</span>
-            </p>
-            <div class="sliders_step1">
-                <div id="slider-range"></div>
-            </div>
+        <div class="col-md-offset-1 col-md-10">
+        <%= render partial: 'filter_form' %>
         </div>
+
+        <div class="col-md-2">
+          <% if user_signed_in? %>
+            <div id="time-range">
+                <p>
+                    Time Range: <span class="slider-time">12:00 AM</span> - <span class="slider-time2">11:59 PM</span>
+                </p>
+                <div class="sliders_step1">
+                    <div id="slider-range"></div>
+                </div>
+            </div>
+          <% end %>
+        </div>
+
+        <!-- <th>ID</th>
+        <th>Origin</th>
+        <th>Destination</th>
+        <th>Departure Date</th> -->
+
+    <div class="col-md-8">
+       <% @rides.each do |ride| %>
+      <a href="<%= user_signed_in? ? ride_path(ride) : user_omniauth_authorize_path(:facebook) %>">
+        <div class="well" id="ride-<%= ride.id %>">
+          <%= image_tag ride.initiator.image %>
+          <%= ride.id %>
+          <%= ride.origin %>
+          <%= ride.destination %>
+          <%= ride.departure_date %>
+        </div>
+      </a>
       <% end %>
-    </div>
+    </div><!-- end of col-md-8 for rides listing -->
+    </div><!-- row end -->
+    </div><!-- container end -->
+</div>
+<!-- /div.rides-index -->
 
-    <!-- <th>ID</th>
-    <th>Origin</th>
-    <th>Destination</th>
-    <th>Departure Date</th> -->
-
-<div class="col-md-8">
-   <% @rides.each do |ride| %>
-  <a href="<%= user_signed_in? ? ride_path(ride) : user_omniauth_authorize_path(:facebook) %>">
-    <div class="well" id="ride-<%= ride.id %>">
-      <%= image_tag ride.initiator.image %>
-      <%= ride.id %>
-      <%= ride.origin %>
-      <%= ride.destination %>
-      <%= ride.departure_date %>
-    </div>
-  </a>
-  <% end %>
-</div><!-- end of col-md-8 for rides listing -->
-</div><!-- row end -->
-</div><!-- container end -->
-
-
- <script type="text/javascript">
-  $("#slider-range").slider({
+<script type="text/javascript">
+$("#slider-range").slider({
     range: true,
     min: 0,
     max: 1440,
