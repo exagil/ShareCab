@@ -9,6 +9,7 @@ $(document).ready(function(){
       $(".map-canvas-destination").remove();
       $("#bgvid").fadeOut(1000, function(){$(this).remove();});
       $(".middle-header").fadeOut(1000, function(){$(this).remove();});
+      $("#navbar-standard").fadeOut(1000, function(){$(this).remove();})
       $(".one").prepend(mapCanvasOrigin).fadeIn(1000);
       $(".map-canvas-origin").fadeIn(1000);
     }
@@ -44,6 +45,7 @@ $(document).ready(function(){
       $('.map-canvas-origin').remove();
       $("#bgvid").fadeOut(1000, function(){$(this).remove();});
       $(".middle-header").fadeOut(1000, function(){$(this).remove();});
+      $("#navbar-standard").fadeOut(1000, function(){$(this).remove();})
       $(".one").prepend(mapCanvasDestination).fadeIn(1000);
       $(".map-canvas-destination").fadeIn(1000);
     }
