@@ -1,6 +1,6 @@
 Rails.application.configure do
-  APP_ID='348322615356131'
-  APP_SECRET='efe77119e7d90b3a8d6e64b65cb69345'
+  APP_ID='358910230964036'
+  APP_SECRET='28af6ac1884c8cfa9a5ecfecb60d3f40'
   APP_HOST='http://localhost:3000/'
   # Settings specified here will take precedence over those in config/application.rb.
 
