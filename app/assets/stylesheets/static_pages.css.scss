@@ -100,6 +100,10 @@
         }
         /* /div.middle-header */
 
+        *::selection {
+          background-color: #93bfc1;
+        };
+
       }
       /* /div.one */
 
@@ -132,6 +136,11 @@
           color: white;
         }
       }
+
+      *::selection {
+        background-color: #93bfc1
+      }
+
       /* /div.findmycabform */
 
       /* div.two */
@@ -143,10 +152,6 @@
 
     }
     /* /div.container-fluid */
+
   }
 /* end static_pages_index */
-
-
-
-
-
