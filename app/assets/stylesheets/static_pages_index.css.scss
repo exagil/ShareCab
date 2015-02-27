@@ -45,10 +45,18 @@
           position: fixed; top: -20; left: 0;
           width: 100vw; height: auto;
           z-index: -1;
-          /*background: brown no-repeat;*/
           background-size: cover;
         }
         /* /video#bgvid */
+
+        /* div..map-canvas-origin */
+        .map-canvas-origin {
+          position: fixed; top: 0; left: 0;
+          width: 100vw; height: inherit;
+          z-index: -1000;
+          background-size: cover;
+        }
+        /* /div..map-canvas-origin */
 
         /* nav#navbar-standard */
         #navbar-standard {
@@ -88,7 +96,7 @@
           width: 100%; text-align: center;
           color: white; font-weight: bold;
           font-family: Raleway, sans-serif;
-          position: relative; top: 32%;
+          position: relative; top: 27%;
 
           h1.up {
             font-size: 3.5em;
