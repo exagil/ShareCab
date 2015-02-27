@@ -23,3 +23,8 @@
  @import 'new_ride';
  @import 'static_pages';
  @import 'rides';
+
+body {
+  overflow-x: hidden;
+  font-family: 'Raleway', sans-serif;
+}

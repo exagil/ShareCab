@@ -1,0 +1,45 @@
+// Place all the styles related to the static_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+//colors
+  $landing-blue: #191F25;
+  $landing-pink: #CC2262;
+@import url(http://fonts.googleapis.com/css?family=Raleway:100,400,700);
+
+/* static_pages_index */
+  .static_pages_index {
+    width: 100vw;
+
+    .container-fluid{
+      padding-left: 0px;
+      padding-right: 0px;
+      
+      video#bgvid {
+        position: fixed; top: -20; left: 0;
+        /*min-width: inherit; min-height: inherit;*/
+        width: 100vw; height: auto;
+        z-index: -1000;
+        /*background: brown no-repeat;*/
+        background-size: cover;
+      }
+
+      .one {
+        height: 75vh;
+        background-color: rgba(0,0,0,.3);
+      }
+
+      .two {
+        height: 100vh;
+        background-color: #EDEFED;
+      }
+      
+    }
+  }
+/* end static_pages_index */
+
+
+
+
+
