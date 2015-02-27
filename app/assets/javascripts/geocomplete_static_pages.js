@@ -34,40 +34,40 @@ $(document).ready(function(){
     });
 
   }); // end of origin
-}); // end of doc
 
   // Destination
-//   $("#destination").on('click', function(){
-//     if (!($('.map-canvas-destination').length)){ // destination map not present
-//       $("#carousel-example-generic").remove();
-//       $('.map-canvas-origin').remove();
-//       var mapCanvasDestination = "<div class='map-canvas-destination'></div>"
-//       $(".toggle-map").append(mapCanvasDestination);
-//     }
-//     else{ // destination map present
-//       $(".map-canvas-origin").remove();
-//       $("#carousel-example-generic").remove();
-//       // var mapCanvasOrigin = "<div class='map-canvas'></div>"
-//       // $(".toggle-map").append(mapCanvasOrigin);
-//     }
+  $("#destination").on('click', function(){
+    if (!($('.map-canvas-destination').length)){ // destination map not present
+      console.log("Destination Map Number: " + $('.map-canvas-destination').length);
+      var mapCanvasDestination = "<div class='map-canvas-destination'></div>"
+      // get rid of all the material to be deleted
+      $('.map-canvas-origin').remove();
+      $("#bgvid").fadeOut(1000, function(){$(this).remove();});
+      $(".middle-header").fadeOut(1000, function(){$(this).remove();});
+      $(".one").prepend(mapCanvasDestination).fadeIn(1000);
+      $(".map-canvas-destination").fadeIn(1000);
+    }
+    else{ // destination map present
+      $(".map-canvas-origin").remove();
+    }
 
-//     $(this).geocomplete({
-//       map: ".map-canvas-destination",
-//       details: ".fill-destination",
-//       markerOptions: {
-//         draggable: true
-//       }
-//     });
+    $(this).geocomplete({
+      map: ".map-canvas-destination",
+      details: ".fill-destination",
+      markerOptions: {
+        draggable: true
+      }
+    });
 
-//     // $("#find").click(function(){
-//     //   $("#geocomplete").trigger("geocode");
-//     // });
+    // $("#find").click(function(){
+    //   $("#geocomplete").trigger("geocode");
+    // });
 
-//     $(this).bind("geocode:dragged", function(event, latLng){
-//       $(".destination-lat").val(latLng.lat());
-//       $(".destination-lng").val(latLng.lng());
-//     });
-//   }); // end of destination   
+    $(this).bind("geocode:dragged", function(event, latLng){
+      $(".destination-lat").val(latLng.lat());
+      $(".destination-lng").val(latLng.lng());
+    });
+  }); // end of destination   
 
 //     var mapCanvasRoute = "<div id='map-route'></div>"
 //     $("#date").focus(function(){
@@ -166,12 +166,14 @@ $(document).ready(function(){
 
 
 //   // Passing values to origin_lat and origin_lng on submit
-//   $("#find-pal").on('click', function(){
-//     if ($('#origin_lat').is(':empty')){
-//     $("#origin_lat").val($(".origin-lat").val());
-//     $("#origin_lng").val($(".origin-lng").val());
-//     $("#destination_lat").val($(".destination-lat").val());
-//     $("#destination_lng").val($(".destination-lng").val());
-//   }
-//   });
+  $("#find-button").on('click', function(){
+    if ($('#origin_lat').is(':empty')){
+    $("#origin_lat").val($(".origin-lat").val());
+    $("#origin_lng").val($(".origin-lng").val());
+    $("#destination_lat").val($(".destination-lat").val());
+    $("#destination_lng").val($(".destination-lng").val());
+  }
+  });
 // });
+
+}); // end of doc

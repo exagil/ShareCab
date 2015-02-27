@@ -49,13 +49,21 @@
         }
         /* /video#bgvid */
 
-        /* div..map-canvas-origin */
+        /* div.map-canvas-origin */
         .map-canvas-origin {
           height: inherit; width: inherit;
           display: none;
           background: url(http://res.cloudinary.com/chi6rag/image/upload/v1425071424/gmap_cdjajg.jpg);
         }
-        /* /div..map-canvas-origin */
+        /* /div.map-canvas-origin */
+
+        /* div.map-canvas-destination */
+        .map-canvas-destination {
+          height: inherit; width: inherit;
+          display: none;
+          background: url(http://res.cloudinary.com/chi6rag/image/upload/v1425071424/gmap_cdjajg.jpg);
+        }
+        /* /div.map-canvas-destination */
 
         /* nav#navbar-standard */
         #navbar-standard {
