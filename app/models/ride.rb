@@ -84,6 +84,12 @@ class Ride < ActiveRecord::Base
     end
   end
 
+  def self.filter_form_time_to_minutes(form_date, filter_time)
+    time = Ride.filter_form_to_rails_time(form_date, filter_time)
+    time = time.strftime("%H").to_i * 60 + time.strftime("%M").to_i
+    time
+  end
+
   def self.filter_suitable_rides(range, origin_lat,origin_lng, destination_lat, destination_lng, filter_date, filter_time_minimum, filter_time_maximum)
     filter_time_minimum = self.filter_form_to_rails_time(filter_date, filter_time_minimum)
     filter_time_maximum = self.filter_form_to_rails_time(filter_date, filter_time_maximum)

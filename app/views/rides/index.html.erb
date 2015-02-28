@@ -45,12 +45,16 @@
 <!-- /div.rides-index -->
 
 <script type="text/javascript">
+<% if params[:time_left]&&params[:time_right] %>
+  <% time_left = Ride.filter_form_time_to_minutes(params[:date_filter], params[:time_left]) %>
+  <% time_right = Ride.filter_form_time_to_minutes(params[:date_filter], params[:time_right]) %>
+<% end %>
 $("#slider-range").slider({
     range: true,
     min: 0,
     max: 1440,
     step: 15,
-    values: [0, 1440],
+    values: [<%= time_left||0 %>, <%= time_right||1440 %>],
     slide: function (e, ui) {
         var hours1 = Math.floor(ui.values[0] / 60);
         var minutes1 = ui.values[0] - (hours1 * 60);

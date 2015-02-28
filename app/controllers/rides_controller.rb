@@ -29,6 +29,8 @@ class RidesController < ApplicationController
     # cool! store it in @rides_display
     @rides = []
     if((params[:time_right]) && (params[:time_left]))
+      session[:time_right] = params[:time_right]
+      session[:time_left] = params[:time_left]
       @rides = Ride.filter_suitable_rides(5, session[:origin_lat],session[:origin_lng], session[:destination_lat],session[:destination_lng], (session[:date_filter] || session[:date]), params[:time_left], params[:time_right])
     elsif (params.length>=4)
       session[:origin] = params[:origin]
