@@ -1,5 +1,15 @@
 <!-- form start -->
 <%= form_tag(rides_path, class: 'form-inline', method: :get) do %>
+  <% if user_signed_in? %>
+    <div id="time-range">
+        <p>
+            Time Range: <span class="slider-time">12:00 AM</span> - <span class="slider-time2">11:59 PM</span>
+        </p>
+        <div class="sliders_step1">
+            <div id="slider-range"></div>
+        </div>
+    </div>
+  <% end %>
   <div class="row">
     <div class="form-group fill-origin">
       <%= label_tag 'origin', "I am going from . ." %><br />
@@ -25,16 +35,6 @@
   <%= hidden_field_tag :time_left, params[:left_time] %>
   <%= hidden_field_tag :time_right, params[:right_time] %>
   <br />
-  <% if user_signed_in? %>
-    <div id="time-range">
-        <p>
-            Time Range: <span class="slider-time">12:00 AM</span> - <span class="slider-time2">11:59 PM</span>
-        </p>
-        <div class="sliders_step1">
-            <div id="slider-range"></div>
-        </div>
-    </div>
-  <% end %>
   <div class="form-group">
     <button type="submit" class="" id="find-pal"><span class="glyphicon glyphicon-search"></span></button>
   </div>

@@ -21,7 +21,8 @@
                 <%= initiator_name %>
               </div>
               <div class="col-md-8 more-details">
-                Departs on: <b><%= ride.departure_date %></b> at <b><%= ride.departure_time %></b><br />
+                <% timestamp = ride.departure_time.localtime %>
+                Departs on <b><%= timestamp.strftime("%d/%m/%y") %></b> at <b><%= timestamp.strftime("%I:%M%p") %></b><br />
                 <span class="glyphicon glyphicon-map-marker"></span>&nbsp;from <%= ride.origin.gsub(/,.+/, "") %><br />
                 <span class="glyphicon glyphicon-map-marker"></span>&nbsp;to <%= ride.destination.gsub(/,.+/, "") %>
                 <br />
