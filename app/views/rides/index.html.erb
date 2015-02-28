@@ -4,7 +4,7 @@
   <%= render partial: 'rides/routemap' %>
   <!-- div.filterandresults -->
   <div class="filterandresults">
-    <div class="container">
+    <div class="container-fluid">
       <!-- div.filter-form -->
       <div class="col-md-4 filter-form">
         <%= render partial: 'filter_form' %>
@@ -24,12 +24,13 @@
       <div class="col-md-8 results">
         <% @rides.each do |ride| %>
           <a href="<%= user_signed_in? ? ride_path(ride) : user_omniauth_authorize_path(:facebook) %>">
-            <div class="well" id="ride-<%= ride.id %>">
+            <div class="ride" id="ride-<%= ride.id %>">
               <%= image_tag ride.initiator.image %>
+              <%= ride.initiator.name.gsub(/\s.+/,"") %> leaves on 
+              <%= ride.departure_time.to_formatted_s(:short) %>
               <%= ride.id %>
               <%= ride.origin %>
               <%= ride.destination %>
-              <%= ride.departure_date %>
             </div>
           </a>
         <% end %>
