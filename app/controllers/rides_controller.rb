@@ -20,6 +20,7 @@ class RidesController < ApplicationController
   end
 
   def index
+    fail
     # sets a range (flexibility)
     # stores all the rides in rides variable
     # makes an empty instance level array @rides
@@ -43,6 +44,7 @@ class RidesController < ApplicationController
       end
     end
     @rides = Ride.get_suitable_rides(5, session[:origin_lat],session[:origin_lng], session[:destination_lat],session[:destination_lng], (session[:date_filter] || session[:date]).to_date)
+    @rides = 
     if(@rides.length<1) # no rides
       redirect_to static_pages_no_ride_found_url
     end

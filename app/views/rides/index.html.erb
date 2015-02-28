@@ -8,16 +8,6 @@
       <!-- div.filter-form -->
       <div class="col-md-4 filter-form">
         <%= render partial: 'filter_form' %>
-        <% if user_signed_in? %>
-          <div id="time-range">
-              <p>
-                  Time Range: <span class="slider-time">12:00 AM</span> - <span class="slider-time2">11:59 PM</span>
-              </p>
-              <div class="sliders_step1">
-                  <div id="slider-range"></div>
-              </div>
-          </div>
-        <% end %>
       </div>
       <!-- /div.filter-form -->
       <!-- div.results -->

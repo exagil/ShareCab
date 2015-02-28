@@ -63,6 +63,42 @@ class Ride < ActiveRecord::Base
     end
   end
 
+  def self.filter_form_to_rails_time(form_date, filter_time)
+    form_date_regex = form_date.match(/^((\d+)-(\d+)-(\d+))$/)
+    day   = form_date_regex[2]
+    month = form_date_regex[3]
+    year  = form_date_regex[4]
+
+    filter_time = filter_time.gsub("/\s+/", " ").gsub("/:\s+/", ":").gsub(" ", ":")
+    filter_time_regex = filter_time.match(/^((\d+):(\d+):(AM|PM))$/)
+    hour = filter_time_regex[2]
+    minute = filter_time_regex[3]
+    am_pm = filter_time_regex[4]
+
+    if(am_pm == "AM")
+      return Time.new(year, month, day, hour, minute, 0, "+05:30")
+    elsif(am_pm == "PM" && hour == "12")
+      return Time.new(year, month, day, hour, minute, 0, "+05:30")
+    elsif(am_pm == "PM" && hour != "12")
+      return Time.new(year, month, day, hour, minute, 0, "+05:30") + 43200
+    end
+  end
+
+  def self.filter_suitable_rides(range, origin_lat,origin_lng, destination_lat, destination_lng, filter_date, filter_time_minimum, filter_time_maximum)
+    rides = self.where(departure_date: date)
+    @rides_display = []
+    rides.each do |ride|
+      # distance between entered origin and db origin
+      distance_origin = Geocoder::Calculations.distance_between([origin_lat, origin_lng],[ride.origin_lat, ride.origin_long])
+      if distance_origin < range
+        distance_destination = Geocoder::Calculations.distance_between([destination_lat, destination_lng],[ride.destination_lat, ride.destination_long])
+        if distance_destination < range
+          @rides_display << ride
+        end
+      end
+    end
+  end
+
   def self.get_suitable_rides(range, origin_lat,origin_lng, destination_lat, destination_lng, date)
     rides = self.where(departure_date: date)
     @rides_display = []

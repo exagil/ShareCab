@@ -12,7 +12,8 @@ Ride.create(origin: "Delhi, New Delhi, India",
             destination: "Hyderabad, Telangana, India",
             destination_lat: 17.385044,
             destination_long: 78.486671,
-            departure_date: "2015-01-15",
+            departure_date: Date.today,
+            departure_time: Time.now,
             initiator_id:1)
 
 Ride.create(origin: "Pitampura, New Delhi, Delhi, India",
@@ -21,7 +22,8 @@ Ride.create(origin: "Pitampura, New Delhi, Delhi, India",
             destination: "Shalimar Bagh, New Delhi, Delhi, India",
             destination_lat: 28.7164134,
             destination_long: 77.15458460000002,
-            departure_date: "2015-01-15",
+            departure_date: Date.today,
+            departure_time: Time.now,
             initiator_id:1)
 
 Ride.create(origin: "Pitampura, New Delhi, Delhi, India",
@@ -30,7 +32,8 @@ Ride.create(origin: "Pitampura, New Delhi, Delhi, India",
             destination: "Gurgaon, Haryana, India",
             destination_lat: 28.4594965,
             destination_long: 77.02663830000006,
-            departure_date: "2015-01-15",
+            departure_date: Date.today,
+            departure_time: Time.now,
             initiator_id:1)
 
 Ride.create(origin: "Gachibowli, Hyderabad, Telangana, India",
@@ -39,7 +42,8 @@ Ride.create(origin: "Gachibowli, Hyderabad, Telangana, India",
             destination: "Jubilee Hills, Hyderabad, Telangana, India",
             destination_lat: 17.4325235,
             destination_long: 78.40701519999993,
-            departure_date: "2015-01-15",
+            departure_date: Date.today,
+            departure_time: Time.now,
             initiator_id:1)
 
 Ride.create(origin: "Gachibowli, Hyderabad, Telangana, India",
@@ -48,7 +52,8 @@ Ride.create(origin: "Gachibowli, Hyderabad, Telangana, India",
             destination: "Punjab, India",
             destination_lat: 31.1471305,
             destination_long: 75.34121789999995,
-            departure_date: "2015-01-15",
+            departure_date: Date.today,
+            departure_time: Time.now,
             initiator_id:1)
 
 Ride.create(origin: "Gachibowli, Hyderabad, Telangana, India",
@@ -57,7 +62,8 @@ Ride.create(origin: "Gachibowli, Hyderabad, Telangana, India",
             destination: "Film Nagar, Hyderabad, Telangana, India",
             destination_lat: 17.4141797,
             destination_long: 78.41169000000002,
-            departure_date: "2015-01-15",
+            departure_date: Date.today,
+            departure_time: Time.now,
             initiator_id:1)
 
 Ride.create(origin: "Gachibowli, Hyderabad, Telangana, India",
@@ -66,7 +72,8 @@ Ride.create(origin: "Gachibowli, Hyderabad, Telangana, India",
             destination: "Shamshabad, Hyderabad, Telangana 500409, India",
             destination_lat: 17.240263,
             destination_long: 78.42938500000002,
-            departure_date: "2015-01-15",
+            departure_date: Date.today,
+            departure_time: Time.now,
             initiator_id:1)
 
 Ride.create(origin: "Care Hospitals, Hyderabad, Telangana, India",
@@ -75,7 +82,8 @@ Ride.create(origin: "Care Hospitals, Hyderabad, Telangana, India",
             destination: "Jubilee Hills, Hyderabad, Telangana, India",
             destination_lat: 17.4325235,
             destination_long: 78.40701519999993,
-            departure_date: "2015-01-15",
+            departure_date: Date.today,
+            departure_time: Time.now,
             initiator_id:1)
 
 Ride.create(origin: "Delhi, New Delhi, India",
@@ -84,7 +92,8 @@ Ride.create(origin: "Delhi, New Delhi, India",
             destination: "Noida, Uttar Pradesh, India",
             destination_lat: 28.5355161,
             destination_long: 77.39102649999995,
-            departure_date: "2015-01-15",
+            departure_date: Date.today,
+            departure_time: Time.now,
             initiator_id:1)
 
 Ride.create(origin: "Delhi, New Delhi, India",
@@ -93,7 +102,8 @@ Ride.create(origin: "Delhi, New Delhi, India",
             destination: "Faridabad, Haryana, India",
             destination_lat: 28.4089123,
             destination_long: 77.31778940000004,
-            departure_date: "2015-01-15",
+            departure_date: Date.today,
+            departure_time: Time.now,
             initiator_id:1)
 
 Ride.create(origin: "Kangra, Himachal Pradesh, India",
@@ -102,5 +112,6 @@ Ride.create(origin: "Kangra, Himachal Pradesh, India",
             destination: "Sudarshan Nagar, Pimpri-Chinchwad, Maharashtra, India",
             destination_lat: 18.5977841,
             destination_long: 73.81433649999997,
-            departure_date: "2015-01-15",
+            departure_date: Date.today,
+            departure_time: Time.now,
             initiator_id:1)
