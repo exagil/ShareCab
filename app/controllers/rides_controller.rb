@@ -28,7 +28,7 @@ class RidesController < ApplicationController
       # the distance between the entered destination and the ride destination is less than range
     # cool! store it in @rides_display
     @rides = []
-    if((params[:time_right]) && (params[:time_left]))
+    if((params[:time_right] && !params[:time_right].empty?) && (params[:time_left] && !params[:time_left].empty?))
       session[:time_right] = params[:time_right]
       session[:time_left] = params[:time_left]
       @rides = Ride.filter_suitable_rides(5, session[:origin_lat],session[:origin_lng], session[:destination_lat],session[:destination_lng], (session[:date_filter] || session[:date]), params[:time_left], params[:time_right])

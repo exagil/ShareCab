@@ -45,7 +45,7 @@
 <!-- /div.rides-index -->
 
 <script type="text/javascript">
-<% if params[:time_left]&&params[:time_right] %>
+<% if((params[:time_right] && !params[:time_right].empty?) && (params[:time_left] && !params[:time_left].empty?)) %>
   <% time_left = Ride.filter_form_time_to_minutes(params[:date_filter], params[:time_left]) %>
   <% time_right = Ride.filter_form_time_to_minutes(params[:date_filter], params[:time_right]) %>
 <% end %>
