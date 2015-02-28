@@ -193,10 +193,30 @@
       }
       /* /div.one */
 
-      /* div.two */
-      .two {
-        height: 100vh;
-        background-color: #EDEFED;
+      /* div.two.how-it-works */
+      .two.how-it-works {
+        height: 30vh; color: #737373;
+        background-color: #EDEAE5;
+
+        /* div.infographic */
+        .infographic {
+          height: inherit; text-align: center;
+          background-color: #EDEAE5;
+
+          span {
+            position: relative; top: 42%;
+            transform: translateY(-50%);
+            font-size: 200%;
+          }
+
+        }
+        /* /div.infographic */
+
+        /* div.howitworksinfographic */ 
+        .howitworksinfographic {
+          border-right: 1px solid #E2E2E2;
+        }
+
       }
       /* /div.two */
 
