@@ -81,16 +81,41 @@
 
           /* div.navbar-collapse */
           div.navbar-collapse {
-            ul.nav.navbar-nav.navbar-right {
+
+            /* ul.navbar-right */
+            .navbar-right {
               padding: 1em; padding-right: 1.6em;
               
+              /* a.dropdown-toggle */
+              .dropdown-toggle {
+                background-color: transparent;
+              }
+              /* /a.dropdown-toggle */
+
+              /* ul.dropdown-menu */
+              .dropdown-menu {
+                background-color: rgba(0,0,0, 0.2);
+
+                /* li.divider */
+                .divider {
+                  background-color: rgba(255,255,255,0.4);
+                }
+                /* /li.divider */
+
+              }
+              /* /ul.dropdown-menu */
+
               a {
                 color: white;
-                &:hover {
-                  color: white;
-                }
+                &:visited {}
+                &:hover {}
+                &:active {}
+
               }
+
             }
+            /* /ul.navbar-right */
+
           }
           /* /div-navbar-collapse */
 
