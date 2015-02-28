@@ -6,7 +6,7 @@
   <div class="filterandresults">
     <div class="container">
       <!-- div.filter-form -->
-      <div class="col-md-3 filter-form">
+      <div class="col-md-4 filter-form">
         <%= render partial: 'filter_form' %>
         <% if user_signed_in? %>
           <div id="time-range">
@@ -21,7 +21,7 @@
       </div>
       <!-- /div.filter-form -->
       <!-- div.results -->
-      <div class="col-md-9 results">
+      <div class="col-md-8 results">
         <% @rides.each do |ride| %>
           <a href="<%= user_signed_in? ? ride_path(ride) : user_omniauth_authorize_path(:facebook) %>">
             <div class="well" id="ride-<%= ride.id %>">
