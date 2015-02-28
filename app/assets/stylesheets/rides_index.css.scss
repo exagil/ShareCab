@@ -1,4 +1,4 @@
-// Place all the styles related to the static_pages controller here.
+// Plnav#navbar-standard the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
@@ -10,9 +10,15 @@
   Please follow the SASS structure strictly
 
   - div.rides_index
-    - div.one
-    - div.two
-
+    - nav#navbar-standard
+    - div.filterandresults
+      - div.filter-form
+      - div.results
+        - div.ride
+          - div.initiator-details
+          - div.more-details
+          - div.misc-details
+          
 */
 
 /* div.rides_index */
