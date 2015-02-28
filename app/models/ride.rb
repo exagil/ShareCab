@@ -79,13 +79,15 @@ class Ride < ActiveRecord::Base
       return Time.new(year, month, day, hour, minute, 0, "+05:30")
     elsif(am_pm == "PM" && hour == "12")
       return Time.new(year, month, day, hour, minute, 0, "+05:30")
-    elsif(am_pm == "PM" && hour != "12")
+      elsif(am_pm == "PM" && hour != "12")
       return Time.new(year, month, day, hour, minute, 0, "+05:30") + 43200
     end
   end
 
   def self.filter_suitable_rides(range, origin_lat,origin_lng, destination_lat, destination_lng, filter_date, filter_time_minimum, filter_time_maximum)
-    rides = self.where(departure_date: date)
+    filter_time_minimum = self.filter_form_to_rails_time(filter_date, filter_time_minimum)
+    filter_time_maximum = self.filter_form_to_rails_time(filter_date, filter_time_maximum)
+    rides = self.where("departure_time>? AND departure_time<?", filter_time_minimum, filter_time_maximum)
     @rides_display = []
     rides.each do |ride|
       # distance between entered origin and db origin
@@ -97,6 +99,7 @@ class Ride < ActiveRecord::Base
         end
       end
     end
+    @rides_display
   end
 
   def self.get_suitable_rides(range, origin_lat,origin_lng, destination_lat, destination_lng, date)

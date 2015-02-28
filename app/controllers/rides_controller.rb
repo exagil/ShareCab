@@ -20,7 +20,6 @@ class RidesController < ApplicationController
   end
 
   def index
-    fail
     # sets a range (flexibility)
     # stores all the rides in rides variable
     # makes an empty instance level array @rides
@@ -28,7 +27,10 @@ class RidesController < ApplicationController
       # the distance between the entered origin and the ride origin is less than range
       # the distance between the entered destination and the ride destination is less than range
     # cool! store it in @rides_display
-    if (params.length>=4)
+    @rides = []
+    if((params[:time_right]) && (params[:time_left]))
+      @rides = Ride.filter_suitable_rides(5, session[:origin_lat],session[:origin_lng], session[:destination_lat],session[:destination_lng], (session[:date_filter] || session[:date]), params[:time_left], params[:time_right])
+    elsif (params.length>=4)
       session[:origin] = params[:origin]
       session[:destination]=params[:destination]
       session[:origin_lat] = params[:origin_lat]
@@ -42,9 +44,8 @@ class RidesController < ApplicationController
         session[:date] = nil
         session[:date_filter] = params[:date_filter]
       end
+      @rides = Ride.get_suitable_rides(5, session[:origin_lat],session[:origin_lng], session[:destination_lat],session[:destination_lng], (session[:date_filter] || session[:date]).to_date)
     end
-    @rides = Ride.get_suitable_rides(5, session[:origin_lat],session[:origin_lng], session[:destination_lat],session[:destination_lng], (session[:date_filter] || session[:date]).to_date)
-    @rides = 
     if(@rides.length<1) # no rides
       redirect_to static_pages_no_ride_found_url
     end

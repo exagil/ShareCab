@@ -6,15 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Ride.create(origin: "Delhi, New Delhi, India",
-            origin_lat: 28.6139391,
-            origin_long: 77.20902120000005,
-            destination: "Hyderabad, Telangana, India",
-            destination_lat: 17.385044,
-            destination_long: 78.486671,
-            departure_date: Date.today,
-            departure_time: Time.now,
-            initiator_id:1)
+Ride.create(origin: "Delhi, New Delhi, India", origin_lat: 28.6139391, origin_long: 77.20902120000005, destination: "Hyderabad, Telangana, India", destination_lat: 17.385044, destination_long: 78.486671, departure_date: Date.today, departure_time: Time.now, initiator_id:1)
 
 Ride.create(origin: "Pitampura, New Delhi, Delhi, India",
             origin_lat: 28.69899839999999,
