@@ -14,13 +14,19 @@
       <div class="col-md-8 results">
         <% @rides.each do |ride| %>
           <a href="<%= user_signed_in? ? ride_path(ride) : user_omniauth_authorize_path(:facebook) %>">
-            <div class="ride" id="ride-<%= ride.id %>">
-              <%= image_tag ride.initiator.image %>
-              <%= ride.initiator.name.gsub(/\s.+/,"") %> leaves on 
-              <%= ride.departure_time.to_formatted_s(:short) %>
-              <%= ride.id %>
-              <%= ride.origin %>
-              <%= ride.destination %>
+            <div class="ride col-md-12 ride-hover" id="ride-<%= ride.id %>">
+              <% initiator_name = ride.initiator.name.gsub(/\s.+/,"") %>
+              <div class="col-md-2">
+                <%= image_tag ride.initiator.image %><br /><br />
+                <%= initiator_name %>
+              </div>
+              <div class="col-md-10">
+                Departs on: <b><%= ride.departure_date %></b> at <b><%= ride.departure_time %></b><br />
+                from <%= ride.origin.gsub(/,.+/, "") %><br />
+                to <%= ride.destination.gsub(/,.+/, "") %>
+                <br />
+                Initiated by <%= initiator_name %>
+              </div>
             </div>
           </a>
         <% end %>

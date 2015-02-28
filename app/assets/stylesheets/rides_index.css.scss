@@ -114,6 +114,15 @@
           padding: 2em; margin-bottom: 1em;
           border-top: 1px solid rgb(228, 226, 226);
           border-bottom: 1px solid rgb(228, 226, 226);
+
+          .col-md-2 {
+            text-align: center;
+          }
+
+          a:hover {
+            opacity: 50%;
+          }
+
         }
         /* /div.ride */
 
