@@ -14,15 +14,15 @@
  *= require_self
  */
 
- @import "bootstrap-sprockets";
- @import 'bootstrap';
- @import "font-awesome-sprockets";
- @import "font-awesome";
- @import 'header';
- @import 'no_ride_found';
- @import 'new_ride';
- @import 'static_pages_index';
- @import 'rides';
+@import "bootstrap-sprockets";
+@import 'bootstrap';
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import 'header';
+@import 'no_ride_found';
+@import 'new_ride';
+@import 'static_pages_index';
+@import 'rides';
 
 body {
   overflow-x: hidden;
