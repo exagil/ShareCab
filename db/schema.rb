@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150207084258) do
+ActiveRecord::Schema.define(version: 20150228151637) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "body"
@@ -32,13 +32,13 @@ ActiveRecord::Schema.define(version: 20150207084258) do
     t.float    "destination_lat"
     t.float    "destination_long"
     t.date     "departure_date"
-    t.time     "departure_time"
     t.integer  "number_of_seats"
     t.integer  "number_of_seats_occupied"
     t.boolean  "completed"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.integer  "initiator_id"
+    t.datetime "departure_time"
   end
 
   create_table "ridings", force: :cascade do |t|
