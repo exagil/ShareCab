@@ -102,6 +102,12 @@
                 }
                 /* /li.divider */
 
+                a {
+                  &:hover {
+                    background-color: transparent;
+                  }
+                }
+
               }
               /* /ul.dropdown-menu */
 
