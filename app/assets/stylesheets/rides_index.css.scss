@@ -56,10 +56,42 @@
 
       /* div.filter-form */
       .filter-form {
+        text-align: center; background-color: #6CAFF5;
 
+        /* div.form-group */
         .form-group {
-          margin-top: 0.4em;
+          margin-top: 0.4em;  padding: 0.4em;
+
+          label {
+            float: left;
+            font-size: 0.8em; font-weight: normal;
+            color: #ffffff; font-style: italic;
+          }
+
+          input {
+            border: 0px; border-radius: 0px;
+            padding: 15px;
+            box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+          }
+
+          button {
+            border: 0px; background-color: transparent;
+            box-shadow: none;
+            position: relative; bottom: 3px;
+            padding: 5px; padding-right: 8px; padding-left: 8px;
+
+            .glyphicon-search {
+              color: white; position: relative; top: 3px;
+            }
+
+          }
+
+          #date_filter {
+            text-align: center;
+          }
+
         }
+        /* /div.form-group */
 
       }
       /* /div.filter-form */

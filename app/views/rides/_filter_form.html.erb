@@ -1,30 +1,32 @@
 <!-- form start -->
 <%= form_tag(rides_path, class: 'form-inline', method: :get) do %>
+  <div class="row">
+    <div class="form-group fill-origin">
+      <%= label_tag 'origin', "I am going from . ." %><br />
+      <%= text_field_tag :origin, session[:origin], class: 'form-control origin-input-nav', placeholder: "Origin" %>
+      <%= hidden_field_tag :lat, session[:origin_lat], class: 'form-control origin-lat' %>
+      <%= hidden_field_tag :lng, session[:origin_lng], class: 'form-control origin-lng' %>
+      <%= hidden_field_tag :origin_lat, session[:origin_lat], class: 'form-control' %>
+      <%= hidden_field_tag :origin_lng, session[:origin_lng], class: 'form-control' %>
+    </div>
+    <div class="form-group fill-destination">
+      <%= label_tag 'destination', "to . ." %><br />
+      <%= text_field_tag :destination, params[:destination], class: 'form-control  destination-input-nav', placeholder: "Destination" %>
+      <%= hidden_field_tag :lat, session[:destination_lat], class: 'form-control destination-lat' %>
+      <%= hidden_field_tag :lng, session[:destination_lng], class: 'form-control destination-lng' %>
+      <%= hidden_field_tag :destination_lat, session[:destination_lat], class: 'form-control' %>
+      <%= hidden_field_tag :destination_lng, session[:destination_lng], class: 'form-control' %>
+    </div>
+  </div>
   <div class="form-group">
-    <label for="date_filter">I am going on</label>
+    <!-- <label for="date_filter">on . .</label><br /> -->
     <input class="form-control input-date-nav" id="date_filter" placeholder="Date" name="date_filter" value="<%= session[:date_filter] || session[:date] %>">
-  </div>
-  <div class="form-group fill-origin">
-    <%= label_tag 'origin', "from" %>
-    <%= text_field_tag :origin, session[:origin], class: 'form-control origin-input-nav', placeholder: "Origin" %>
-    <%= hidden_field_tag :lat, session[:origin_lat], class: 'form-control origin-lat' %>
-    <%= hidden_field_tag :lng, session[:origin_lng], class: 'form-control origin-lng' %>
-    <%= hidden_field_tag :origin_lat, session[:origin_lat], class: 'form-control' %>
-    <%= hidden_field_tag :origin_lng, session[:origin_lng], class: 'form-control' %>
-  </div>
-  <div class="form-group fill-destination">
-    <%= label_tag 'destination', "to" %>
-    <%= text_field_tag :destination, params[:destination], class: 'form-control  destination-input-nav', placeholder: "Destination" %>
-    <%= hidden_field_tag :lat, session[:destination_lat], class: 'form-control destination-lat' %>
-    <%= hidden_field_tag :lng, session[:destination_lng], class: 'form-control destination-lng' %>
-    <%= hidden_field_tag :destination_lat, session[:destination_lat], class: 'form-control' %>
-    <%= hidden_field_tag :destination_lng, session[:destination_lng], class: 'form-control' %>
   </div>
   <%= hidden_field_tag :time_left, params[:left_time] %>
   <%= hidden_field_tag :time_right, params[:right_time] %>
   <br />
   <div class="form-group">
-    <button type="submit" class="btn btn-default" id="find-pal">Filter My Results</button>
+    <button type="submit" class="" id="find-pal"><span class="glyphicon glyphicon-search"></span></button>
   </div>
 <% end %>
 <!-- form end -->
