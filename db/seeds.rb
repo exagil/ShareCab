@@ -6,9 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Ride.create(origin: "Delhi, New Delhi, India", origin_lat: 28.6139391, origin_long: 77.20902120000005, destination: "Hyderabad, Telangana, India", destination_lat: 17.385044, destination_long: 78.486671, departure_date: Date.today, departure_time: Time.now, initiator_id:1)
+ride = Ride.new(origin: "Delhi, New Delhi, India", origin_lat: 28.6139391, origin_long: 77.20902120000005, destination: "Hyderabad, Telangana, India", destination_lat: 17.385044, destination_long: 78.486671, departure_date: Date.today, departure_time: Time.now, number_of_seats: 3, number_of_seats_occupied:1, initiator_id:1)
+ride.save
+ride.ridings.create(user_id: 1)
 
-Ride.create(origin: "Pitampura, New Delhi, Delhi, India",
+ride = Ride.new(origin: "Pitampura, New Delhi, Delhi, India",
             origin_lat: 28.69899839999999,
             origin_long: 77.13841739999998,
             destination: "Shalimar Bagh, New Delhi, Delhi, India",
@@ -16,9 +18,13 @@ Ride.create(origin: "Pitampura, New Delhi, Delhi, India",
             destination_long: 77.15458460000002,
             departure_date: Date.today,
             departure_time: Time.now,
+            number_of_seats: 3,
+            number_of_seats_occupied:1,
             initiator_id:1)
+ride.save
+ride.ridings.create(user_id: 1)
 
-Ride.create(origin: "Pitampura, New Delhi, Delhi, India",
+ride = Ride.new(origin: "Pitampura, New Delhi, Delhi, India",
             origin_lat: 28.69899839999999,
             origin_long: 77.13841739999998,
             destination: "Gurgaon, Haryana, India",
@@ -26,9 +32,13 @@ Ride.create(origin: "Pitampura, New Delhi, Delhi, India",
             destination_long: 77.02663830000006,
             departure_date: Date.today,
             departure_time: Time.now,
+            number_of_seats: 3,
+            number_of_seats_occupied:1,
             initiator_id:1)
+ride.save
+ride.ridings.create(user_id: 1)
 
-Ride.create(origin: "Gachibowli, Hyderabad, Telangana, India",
+ride = Ride.new(origin: "Gachibowli, Hyderabad, Telangana, India",
             origin_lat: 17.4400802,
             origin_long: 78.34891679999998,
             destination: "Jubilee Hills, Hyderabad, Telangana, India",
@@ -36,9 +46,13 @@ Ride.create(origin: "Gachibowli, Hyderabad, Telangana, India",
             destination_long: 78.40701519999993,
             departure_date: Date.today,
             departure_time: Time.now,
+            number_of_seats: 3,
+            number_of_seats_occupied:1,
             initiator_id:1)
+ride.save
+ride.ridings.create(user_id: 1)
 
-Ride.create(origin: "Gachibowli, Hyderabad, Telangana, India",
+ride = Ride.new(origin: "Gachibowli, Hyderabad, Telangana, India",
             origin_lat: 17.4400802,
             origin_long: 78.34891679999998,
             destination: "Punjab, India",
@@ -46,9 +60,13 @@ Ride.create(origin: "Gachibowli, Hyderabad, Telangana, India",
             destination_long: 75.34121789999995,
             departure_date: Date.today,
             departure_time: Time.now,
+            number_of_seats: 3,
+            number_of_seats_occupied:1,
             initiator_id:1)
+ride.save
+ride.ridings.create(user_id: 1)
 
-Ride.create(origin: "Gachibowli, Hyderabad, Telangana, India",
+ride = Ride.new(origin: "Gachibowli, Hyderabad, Telangana, India",
             origin_lat: 17.4400802,
             origin_long: 78.34891679999998,
             destination: "Film Nagar, Hyderabad, Telangana, India",
@@ -56,9 +74,13 @@ Ride.create(origin: "Gachibowli, Hyderabad, Telangana, India",
             destination_long: 78.41169000000002,
             departure_date: Date.today,
             departure_time: Time.now,
+            number_of_seats: 3,
+            number_of_seats_occupied:1,
             initiator_id:1)
+ride.save
+ride.ridings.create(user_id: 1)
 
-Ride.create(origin: "Gachibowli, Hyderabad, Telangana, India",
+ride = Ride.new(origin: "Gachibowli, Hyderabad, Telangana, India",
             origin_lat: 17.4400802,
             origin_long: 78.34891679999998,
             destination: "Shamshabad, Hyderabad, Telangana 500409, India",
@@ -66,9 +88,13 @@ Ride.create(origin: "Gachibowli, Hyderabad, Telangana, India",
             destination_long: 78.42938500000002,
             departure_date: Date.today,
             departure_time: Time.now,
+            number_of_seats: 3,
+            number_of_seats_occupied:1,
             initiator_id:1)
+ride.save
+ride.ridings.create(user_id: 1)
 
-Ride.create(origin: "Care Hospitals, Hyderabad, Telangana, India",
+ride = Ride.new(origin: "Care Hospitals, Hyderabad, Telangana, India",
             origin_lat: 17.385768,
             origin_long: 78.47422000000006,
             destination: "Jubilee Hills, Hyderabad, Telangana, India",
@@ -76,9 +102,13 @@ Ride.create(origin: "Care Hospitals, Hyderabad, Telangana, India",
             destination_long: 78.40701519999993,
             departure_date: Date.today,
             departure_time: Time.now,
+            number_of_seats: 3,
+            number_of_seats_occupied:1,
             initiator_id:1)
+ride.save
+ride.ridings.create(user_id: 1)
 
-Ride.create(origin: "Delhi, New Delhi, India",
+ride = Ride.new(origin: "Delhi, New Delhi, India",
             origin_lat: 28.6139391,
             origin_long: 77.20902120000005,
             destination: "Noida, Uttar Pradesh, India",
@@ -86,9 +116,13 @@ Ride.create(origin: "Delhi, New Delhi, India",
             destination_long: 77.39102649999995,
             departure_date: Date.today,
             departure_time: Time.now,
+            number_of_seats: 3,
+            number_of_seats_occupied:1,
             initiator_id:1)
+ride.save
+ride.ridings.create(user_id: 1)
 
-Ride.create(origin: "Delhi, New Delhi, India",
+ride = Ride.new(origin: "Delhi, New Delhi, India",
             origin_lat: 28.6139391,
             origin_long: 77.20902120000005,
             destination: "Faridabad, Haryana, India",
@@ -96,9 +130,13 @@ Ride.create(origin: "Delhi, New Delhi, India",
             destination_long: 77.31778940000004,
             departure_date: Date.today,
             departure_time: Time.now,
+            number_of_seats: 3,
+            number_of_seats_occupied:1,
             initiator_id:1)
+ride.save
+ride.ridings.create(user_id: 1)
 
-Ride.create(origin: "Kangra, Himachal Pradesh, India",
+ride = Ride.new(origin: "Kangra, Himachal Pradesh, India",
             origin_lat: 32.0998031,
             origin_long: 76.2691006,
             destination: "Sudarshan Nagar, Pimpri-Chinchwad, Maharashtra, India",
@@ -106,4 +144,8 @@ Ride.create(origin: "Kangra, Himachal Pradesh, India",
             destination_long: 73.81433649999997,
             departure_date: Date.today,
             departure_time: Time.now,
+            number_of_seats: 3,
+            number_of_seats_occupied:1,
             initiator_id:1)
+ride.save
+ride.ridings.create(user_id: 1)

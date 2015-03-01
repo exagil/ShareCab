@@ -28,6 +28,7 @@ class Ride < ActiveRecord::Base
   validates :destination, presence: true
   # validates :departure_date, presence: true
   # validates :departure_time, format: { with: /(\d+)\s:\s(\d+)\s:\s(AM|PM)/ }, :length => {:minimum => 4}
+  validates_numericality_of :number_of_seats, presence: true
 
   # geocoded_by :destination, :latitude => :destination_lat, :longitude => :destination_long
   # after_validation :geocode
@@ -138,8 +139,9 @@ class Ride < ActiveRecord::Base
   end
 
   # returns an array of passenger ids associated with the ride
-  # def passenger_ids
-  #   passenger_ids = []
-  #   self.ridings.
-  # end
+  def passenger_ids
+    passenger_ids = []
+    self.ridings.each {|riding| passenger_ids << riding.user_id}
+    return passenger_ids
+  end
 end
