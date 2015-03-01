@@ -22,7 +22,7 @@
               </div>
               <div class="col-md-8 more-details">
                 <% timestamp = ride.departure_time.localtime %>
-                Departs on <b><%= timestamp.strftime("%d/%m/%y") %></b> at <b><%= timestamp.strftime("%I:%M%p") %></b><br />
+                Departs on <b><%= timestamp.strftime("%A, %d %B %Y") %></b> at <b><%= timestamp.strftime("%I:%M %p") %></b><br />
                 <span class="glyphicon glyphicon-map-marker"></span>&nbsp;from <%= ride.origin.gsub(/,.+/, "") %><br />
                 <span class="glyphicon glyphicon-map-marker"></span>&nbsp;to <%= ride.destination.gsub(/,.+/, "") %>
                 <br />
