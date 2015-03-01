@@ -1,0 +1,87 @@
+/*
+  structure
+  ---------
+
+  Please follow the SASS structure strictly
+
+  - div.rides_index
+    - nav#navbar-standard
+    - div.filterandresults
+      - div.filter-form
+      - div.results
+        - div.ride
+          - div.initiator-details
+          - div.more-details
+          - div.misc-details
+          
+*/
+
+/* div.rides-show */
+.rides-show {
+  width: 100vw; min-height: 100vh;
+
+  background-color: #F8F8F8;
+
+    /* nav#navbar-standard */
+    #navbar-standard {
+      margin-bottom: 0px;
+
+      /* a.navbar-brand */
+      .navbar-brand {
+        padding: 1em; padding-left: 1.6em;
+        color: #6CAFF5; font-weight: bold;
+        font-family: Comfortaa, sans-serif;
+        font-size: 2em;
+      }
+      /* /a.navbar-brand */
+
+      /* div.navbar-collapse */
+      div.navbar-collapse {
+        ul.nav.navbar-nav.navbar-right {
+          padding: 1em; padding-right: 1.6em;
+          
+          a {
+            color: #737373;
+            &:hover {
+              color: #737373;
+            }
+          }
+        }
+      }
+      /* /div-navbar-collapse */
+    }
+    /* /nav#navbar-standard */
+
+    /* div.map-canvas-rides-index */
+    #map-canvas-rides-index {
+      height: 35vh; width: 100%;
+      padding: 0.8em; margin: 0.8em;
+      border: 4px double rgb(242, 242, 242);
+    }
+    /* /div.map-canvas-rides-index */
+
+    /* div.ride-details-inner-box */
+    .ride-details-inner-box {
+      height: 50vh; width: 100%;
+      position: relative; top: 0.8em;
+      background-color: rgb(242, 242, 242);
+      border: 4px double #ECECEC;
+      text-align: center;
+
+      /* div.route-name */
+      .route-name {
+        height: 15vh; width: 100%;
+        padding: 1.2em; 
+      }
+      /* /div.route-name */
+
+      .datetime {
+        height: 20vh; width: 92%;
+        margin: 0 auto;
+      }
+
+    }
+    /* /div.ride-details-inner-box */
+
+}
+/* /div.rides-show  */

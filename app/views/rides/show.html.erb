@@ -1,38 +1,71 @@
-<%= render partial: 'layouts/header' %>
-<%= render partial: 'rides/routemap' %>
-<div class="container">
-  <div class="row">
-    <%= content_tag(:div, "#{flash[:warning]}", :class=>"col-md-8 well") if flash[:warning] %>
-    <div class="col-md-8 well">
-      <%= @ride.origin %> => <%= @ride.destination %>
-    </div>
-    <div class="col-md-4 well">
-      <div class="row">
-      <div class="col-md-6 well"><strong>Departure Date:</strong><br/><%= @ride.departure_time.strftime("%d %B %Y") %></div>
-      <div class="col-md-6 well"><strong>Departure Time:</strong><br/><%= @ride.departure_time.localtime.strftime('%I:%M %p') %></div>
-      <% available_seats = @ride.number_of_seats - @ride.number_of_seats_occupied %>
-      <div class="col-md-12"><strong>Availale Seats: </strong><br/><%= available_seats %></div>
+<!-- div.rides-show -->
+<div class="rides-show">
+  <%= render partial: 'layouts/header' %>
+  <br />
+  <!-- div.container -->
+  <div class="container">
+    <div class="row">
+      <!-- div.col-md-8 -->
+      <div class="col-md-8">
+        <%= render partial: 'rides/routemap_show' %>
       </div>
-
-    <% is_current_user_passenger = @ride.passenger_ids.include? current_user.id %>
-    <% if((@ride.departure_time < Time.now) && !is_current_user_passenger) %>
-      <%= content_tag(:button, "Departed", :class => "btn") %>
-    <% elsif((@ride.departure_time < Time.now) && is_current_user_passenger) %>
-      <%= content_tag(:button, "Completed", :class => "btn") %>
-    <% elsif is_current_user_passenger %>
-      <%= content_tag(:button, "Joined", :class => "btn") %>
-    <% elsif available_seats > 0 %>
-      <%= link_to "Join", ride_path(@ride) , method: :patch, class: "btn btn-block btn-primary" %>
-    <% else %>
-      <%= content_tag(:button, "No Seats Left", :class => "btn") %>
-    <% end %>
+      <!-- /div.col-md-8 -->
+      <!-- div.col-md-4 -->
+      <div class="col-md-4">
+        <div class="row">
+          <!-- div.ride-details-inner-box -->
+          <div class="ride-details-inner-box">
+            <div class="row">
+              <div class="col-md-12 route-name"><%= @ride.initiator.name %> initiated a ride<br />from <%= @ride.origin.gsub(/,.+/, "") %><br />to <%= @ride.destination.gsub(/,.+/, "") %></div>
+            </div>
+            <div class="row">
+              <!-- div.datetime -->
+              <div class="datetime">
+                <div class="col-md-6"><strong>Departure Date:</strong><br/><%= @ride.departure_time.strftime("%d %B %Y") %></div>
+                <div class="col-md-6"><strong>Departure Time:</strong><br/><%= @ride.departure_time.localtime.strftime('%I:%M %p') %></div>
+              </div>
+              <!-- div.datetime -->
+            </div>
+            <% available_seats = @ride.number_of_seats - @ride.number_of_seats_occupied %>
+          </div>
+          <!-- /div.ride-details-inner-box -->
+          <!-- div.available-seats -->
+          <div class="col-md-12"><strong>Availale Seats: </strong><br/><%= available_seats %></div>
+          <!-- div.available-seats -->
+        </div>
+      <% is_current_user_passenger = @ride.passenger_ids.include? current_user.id %>
+      <% if((@ride.departure_time < Time.now) && !is_current_user_passenger) %>
+        <%= content_tag(:button, "Departed", :class => "btn") %>
+      <% elsif((@ride.departure_time < Time.now) && is_current_user_passenger) %>
+        <%= content_tag(:button, "Completed", :class => "btn") %>
+      <% elsif is_current_user_passenger %>
+        <%= content_tag(:button, "Joined", :class => "btn") %>
+      <% elsif available_seats > 0 %>
+        <%= link_to "Join", ride_path(@ride) , method: :patch, class: "btn btn-block btn-primary" %>
+      <% else %>
+        <%= content_tag(:button, "No Seats Left", :class => "btn") %>
+      <% end %>
+      </div>
+      <!-- div.col-md-4 -->
     </div>
-  </div><!-- row ends here -->
-  <div class="row">
-  <%= render partial: 'rides/comment', collection: @comments %>
-    <%= form_for([@ride, @comment]) do |f| %>
-      <%= f.text_field :body, class: 'form-control' %>
-      <%= f.submit :submit %>
-    <% end %>
-  </div><!-- row ends here -->
-</div><!-- end of container -->
+  </div>
+  <!-- /div.container -->
+
+  <div class="container">
+    <div class="row">
+      <%= content_tag(:div, "#{flash[:warning]}", :class=>"col-md-8 well") if flash[:warning] %>
+      <div class="col-md-8 well">
+        <%= @ride.origin %> => <%= @ride.destination %>
+      </div>
+      
+    </div><!-- row ends here -->
+    <div class="row">
+    <%= render partial: 'rides/comment', collection: @comments %>
+      <%= form_for([@ride, @comment]) do |f| %>
+        <%= f.text_field :body, class: 'form-control' %>
+        <%= f.submit :submit %>
+      <% end %>
+    </div><!-- row ends here -->
+  </div><!-- end of container -->  
+</div>
+<!-- /div.rides-show
