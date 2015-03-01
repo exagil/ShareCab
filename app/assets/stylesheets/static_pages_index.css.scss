@@ -208,6 +208,16 @@
             transform: translateY(-50%);
             padding: 15px; border-radius: 2px;
             border: 1px solid #ABACAD;
+            transition: background-color 0.5s; /* delays for 1 second */
+            -webkit-transition: background-color 0.5s; /* for Safari & Chrome */
+            
+
+            &:hover {
+              border: 1px solid transparent;
+              background-color: #5CC0AC;
+              color: white;
+            }
+
           }
 
         }
@@ -220,9 +230,28 @@
           /* div.infographic */
           .infographic {
             position: relative; top: 40%; transform: translateY(-50%);
+
             span {
               margin: 0.2em;
+              transition: color 0.4s;
             }
+
+            .fa-facebook-square {
+              &:hover {color: #46629E;}
+            }
+
+            .fa-map-marker {
+              &:hover {color: #F7584B;}
+            }
+
+            .fa-users {
+              &:hover {color: #93BE72;}
+            }
+
+            .fa-taxi {
+              &:hover {color: rgb(195, 168, 118);}
+            }
+
           }
           /* /div.infographic */
 
