@@ -9,10 +9,17 @@
       <div class="row">
       <div class="col-md-6 well"><strong>Departure Date:</strong><br/><%= @ride.departure_date %></div>
       <div class="col-md-6 well"><strong>Departure Time:</strong><br/><%= @ride.departure_time.strftime('%H:%M%p') %></div>
-      <div class="col-md-12"><strong>Availale Seats: </strong><br/><%= @ride.number_of_seats %></div>
+      <% available_seats = @ride.number_of_seats - @ride.number_of_seats_occupied %>
+      <div class="col-md-12"><strong>Availale Seats: </strong><br/><%= available_seats %></div>
       </div>
 
-  <%= link_to "Join", ride_path(@ride) , method: :patch, class: "btn btn-block btn-primary" %>
+    <% if((@ride.initiator_id == current_user.id)) %>
+      <%= content_tag(:button, "Joined", :class => "btn") %>
+    <% elsif available_seats > 0 %>
+      <%= link_to "Join", ride_path(@ride) , method: :patch, class: "btn btn-block btn-primary" %>
+    <% else %>
+      <%= content_tag(:button, "No Space", :class => "btn") %>
+    <% end %>
     </div>
   </div><!-- row ends here -->
   <div class="row">

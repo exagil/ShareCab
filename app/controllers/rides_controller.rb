@@ -14,7 +14,11 @@ class RidesController < ApplicationController
       ride.departure_date = date
       ride.departure_time = time
       ride.initiator_id = current_user.id
+      ride.number_of_seats = params[:number_of_seats]
+      ride.number_of_seats_occupied = 1
       ride.save
+      ride.ridings.create(user_id: current_user.id)
+      
       redirect_to static_pages_successful_ride_creation_url
     end
   end
@@ -69,8 +73,8 @@ class RidesController < ApplicationController
 
   def update
     ride = Ride.find(params[:id])
-    
     # takes care that an initiator cannot join his own ride
+    # takes care that a person who has already joined the ride cannot join a ride
     if ride.initiator_id == current_user.id
       flash[:failure] = "You initiated this ride, why join it again?"
       redirect_to ride_path(ride)
@@ -79,6 +83,7 @@ class RidesController < ApplicationController
       riding = ride.ridings.new(user_id: current_user.id)
       riding_save = riding.save
       if riding_save
+        ride.update(number_of_seats_occupied: ride.number_of_seats_occupied+1)
         flash[:success] = "Congratulations! Your ride is booked"
         UserMailer.join(current_user.email, current_user.name).deliver_now
       end
