@@ -74,8 +74,8 @@ $(document).ready(function(){
       // get rid of all the material to be deleted
       $(".map-canvas-destination").remove();
       $("#bgvid").fadeOut(1000, function(){$(this).remove();});
-      $(".middle-header").fadeOut(1000, function(){$(this).remove();});
-      $("#navbar-standard").fadeOut(1000, function(){$(this).remove();})
+      $(".middle-header").fadeOut(0, function(){$(this).remove();});
+      $("#navbar-standard").fadeOut(0, function(){$(this).remove();})
       $(".one").prepend(mapCanvasOrigin).fadeIn(1000);
       // overrides default gmaps background color
       $(".map-canvas-origin").css("backgroundColor", "#F0EDE5")
@@ -112,8 +112,8 @@ $(document).ready(function(){
       // get rid of all the material to be deleted
       $('.map-canvas-origin').remove();
       $("#bgvid").fadeOut(1000, function(){$(this).remove();});
-      $(".middle-header").fadeOut(1000, function(){$(this).remove();});
-      $("#navbar-standard").fadeOut(1000, function(){$(this).remove();})
+      $(".middle-header").fadeOut(0, function(){$(this).remove();});
+      $("#navbar-standard").fadeOut(0, function(){$(this).remove();})
       $(".one").prepend(mapCanvasDestination).fadeIn(1000);
       // overrides default gmaps background color
       $(".map-canvas-destination").css("backgroundColor", "#F0EDE5");

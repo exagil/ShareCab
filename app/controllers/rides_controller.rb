@@ -69,12 +69,21 @@ class RidesController < ApplicationController
 
   def update
     ride = Ride.find(params[:id])
-    riding =ride.ridings.new(user_id: current_user.id)
-    riding_save = riding.save
-    if riding_save
-      UserMailer.join(current_user.email, current_user.name).deliver_now
+    
+    # takes care that an initiator cannot join his own ride
+    if ride.initiator_id == current_user.id
+      flash[:failure] = "You initiated this ride, why join it again?"
+      redirect_to ride_path(ride)
+    else
+    # creates new details in riding
+      riding = ride.ridings.new(user_id: current_user.id)
+      riding_save = riding.save
+      if riding_save
+        flash[:success] = "Congratulations! Your ride is booked"
+        UserMailer.join(current_user.email, current_user.name).deliver_now
+      end
+      redirect_to root_path
     end
-    redirect_to root_path
   end
 
   def edit
