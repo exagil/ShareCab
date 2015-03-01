@@ -27,6 +27,7 @@ gem 'geocoder'
 gem 'annotate'
 gem 'jquery-turbolinks'
 gem 'Instamojo-rb'
+gem "letter_opener", :group => :development
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

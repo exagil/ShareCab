@@ -1,6 +1,9 @@
 Rails.application.configure do
-  APP_ID='358910230964036'
-  APP_SECRET='28af6ac1884c8cfa9a5ecfecb60d3f40'
+  APP_ID='348078458713880'
+  APP_SECRET='9339e316e3738162b0991e0bfedf7481'
+
+  # APP_ID='358910230964036'
+  # APP_SECRET='28af6ac1884c8cfa9a5ecfecb60d3f40'
   APP_HOST='http://localhost:3000/'
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -43,14 +46,16 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-      :address => "email-smtp.us-west-2.amazonaws.com",
-      :user_name => "AKIAI3HPHMX53UCEHCCQ", # Your SMTP user here.
-      :password => "AnhvhrUQBnmrF27i1TGJ7YdjTvxsFW8nvlU/fXgQuZZN", # Your SMTP password here.
-      :authentication => :login,
-      :enable_starttls_auto => true
-  }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #     :address => "email-smtp.us-west-2.amazonaws.com",
+  #     :user_name => "AKIAI3HPHMX53UCEHCCQ", # Your SMTP user here.
+  #     :password => "AnhvhrUQBnmrF27i1TGJ7YdjTvxsFW8nvlU/fXgQuZZN", # Your SMTP password here.
+  #     :authentication => :login,
+  #     :enable_starttls_auto => true
+  # }
+
+  config.action_mailer.delivery_method = :letter_opener
 
 
 end
