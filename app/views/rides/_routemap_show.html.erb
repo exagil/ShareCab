@@ -1,0 +1,44 @@
+<div id="map-canvas-rides-index"></div>
+<script type="text/javascript">
+  styles=[];
+
+  var directionsDisplay;
+  var directionsService = new google.maps.DirectionsService();
+  var map;
+  // var contentString = "Lorem ipsum";
+
+  // var infowindow = new google.maps.InfoWindow({
+  //   // content:contentString
+  // });
+
+  // var marker;
+  function initialize() {
+  map = new google.maps.Map(document.getElementById('map-canvas-rides-index'), {
+      zoom: 10,
+      // center: new google.maps.LatLng(-33.92, 151.25),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+
+  map.setOptions({styles: styles});
+
+  directionsDisplay = new google.maps.DirectionsRenderer();
+
+  directionsDisplay.setMap(map);
+
+  var start = new google.maps.LatLng(<%= session[:origin_lat] %>, <%= session[:origin_lng] %>);
+  var end = new google.maps.LatLng(<%= session[:destination_lat] %>, <%= session[:destination_lng] %>);
+  var request = {
+      origin: start,
+      destination: end,
+      travelMode: google.maps.DirectionsTravelMode.DRIVING
+  };
+  directionsService.route(request, function (response, status) {
+      if (status == google.maps.DirectionsStatus.OK) {
+          directionsDisplay.setDirections(response);
+      }
+  });
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+  // google.maps.event.trigger(map, 'resize');
+  // map.setZoom( map.getZoom() );
+</script>
