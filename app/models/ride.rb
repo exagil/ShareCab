@@ -136,4 +136,10 @@ class Ride < ActiveRecord::Base
     errors.add(:departure_time, "cannot be blank") if params[:date].nil? || params[:date].blank?
     errors
   end
+
+  # returns an array of passenger ids associated with the ride
+  # def passenger_ids
+  #   passenger_ids = []
+  #   self.ridings.
+  # end
 end
