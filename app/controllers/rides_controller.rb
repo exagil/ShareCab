@@ -14,9 +14,9 @@ class RidesController < ApplicationController
       ride.departure_date = date
       ride.departure_time = time
       ride.initiator_id = current_user.id
-      ride.number_of_seats = params[:number_of_seats]
+      ride.number_of_seats = 3
       ride.number_of_seats_occupied = 1
-      ride.save
+      ride.save!
       ride.ridings.create(user_id: current_user.id)
       
       redirect_to static_pages_successful_ride_creation_url
@@ -24,6 +24,7 @@ class RidesController < ApplicationController
   end
 
   def index
+    # fail
     # sets a range (flexibility)
     # stores all the rides in rides variable
     # makes an empty instance level array @rides

@@ -164,3 +164,90 @@ ride = Ride.new(origin: "Kangra, Himachal Pradesh, India",
             initiator_id:1)
 ride.save
 ride.ridings.create(user_id: 1)
+
+
+
+
+
+ride = Ride.new(origin: "HITEC City, Hyderabad, Telangana, India",
+            origin_lat: 17.445824,
+            origin_long: 78.37739540000007,
+            destination: "Rajiv Gandhi International Airport, Hyderabad, Telangana, India",
+            destination_lat: 17.240263,
+            destination_long: 78.42938500000002,
+            departure_date: Date.today+3,
+            departure_time: Time.now-3600*0.5,
+            number_of_seats: 3,
+            number_of_seats_occupied:1,
+            initiator_id:1)
+ride.save
+ride.ridings.create(user_id: 1)
+
+ride = Ride.new(origin: "HITEC City, Hyderabad, Telangana, India",
+            origin_lat: 17.445824,
+            origin_long: 78.37739540000007,
+            destination: "Rajiv Gandhi International Airport, Hyderabad, Telangana, India",
+            destination_lat: 17.240263,
+            destination_long: 78.42938500000002,
+            departure_date: Date.today+3,
+            departure_time: Time.now-3600,
+            number_of_seats: 3,
+            number_of_seats_occupied:1,
+            initiator_id:1)
+ride.save
+ride.ridings.create(user_id: 1)
+ride = Ride.new(origin: "HITEC City, Hyderabad, Telangana, India",
+            origin_lat: 17.445824,
+            origin_long: 78.37739540000007,
+            destination: "Rajiv Gandhi International Airport, Hyderabad, Telangana, India",
+            destination_lat: 17.240263,
+            destination_long: 78.42938500000002,
+            departure_date: Date.today+3,
+            departure_time: Time.now-3600*2,
+            number_of_seats: 3,
+            number_of_seats_occupied:1,
+            initiator_id:1)
+ride.save
+ride.ridings.create(user_id: 1)
+
+
+ride = Ride.new(origin: "HITEC City, Hyderabad, Telangana, India",
+            origin_lat: 17.445824,
+            origin_long: 78.37739540000007,
+            destination: "Rajiv Gandhi International Airport, Hyderabad, Telangana, India",
+            destination_lat: 17.240263,
+            destination_long: 78.42938500000002,
+            departure_date: Date.today+3,
+            departure_time: Time.now+3600*0.5,
+            number_of_seats: 3,
+            number_of_seats_occupied:1,
+            initiator_id:1)
+ride.save
+ride.ridings.create(user_id: 1)
+
+ride = Ride.new(origin: "HITEC City, Hyderabad, Telangana, India",
+            origin_lat: 17.445824,
+            origin_long: 78.37739540000007,
+            destination: "Rajiv Gandhi International Airport, Hyderabad, Telangana, India",
+            destination_lat: 17.240263,
+            destination_long: 78.42938500000002,
+            departure_date: Date.today+3,
+            departure_time: Time.now+3600,
+            number_of_seats: 3,
+            number_of_seats_occupied:1,
+            initiator_id:1)
+ride.save
+ride.ridings.create(user_id: 1)
+ride = Ride.new(origin: "HITEC City, Hyderabad, Telangana, India",
+            origin_lat: 17.445824,
+            origin_long: 78.37739540000007,
+            destination: "Rajiv Gandhi International Airport, Hyderabad, Telangana, India",
+            destination_lat: 17.240263,
+            destination_long: 78.42938500000002,
+            departure_date: Date.today+3,
+            departure_time: Time.now+3600*2,
+            number_of_seats: 3,
+            number_of_seats_occupied:1,
+            initiator_id:1)
+ride.save
+ride.ridings.create(user_id: 1)
