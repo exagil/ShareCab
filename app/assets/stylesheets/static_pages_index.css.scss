@@ -195,27 +195,39 @@
 
       /* div.two.how-it-works */
       .two.how-it-works {
-        height: 30vh; color: #737373;
+        height: contain; color: #737373;
         background-color: #EDEAE5;
+        text-align: center;
 
-        /* div.infographic */
-        .infographic {
-          height: inherit; text-align: center;
-          background-color: #EDEAE5;
+        /* .howitworksinfographic */
+        .howitworksinfographic {
+          height: 10vh; margin-top: 1em;
 
           span {
-            position: relative; top: 42%;
+            position: relative; top: 35%;
             transform: translateY(-50%);
+            padding: 15px; border-radius: 2px;
+            border: 1px solid #ABACAD;
           }
 
         }
-        /* /div.infographic */
+        /* /.howitworksinfographic */
 
-        /* div.howitworksinfographic */ 
-        .howitworksinfographic {
-          border-right: 1px solid #E2E2E2;
-          font-size: 130%;
+        /* div.deliverables */
+        .deliverables {
+          height: 20vh; width: 100%; margin-top: 1em; 
+
+          /* div.infographic */
+          .infographic {
+            position: relative; top: 40%; transform: translateY(-50%);
+            span {
+              margin: 0.2em;
+            }
+          }
+          /* /div.infographic */
+
         }
+        /* /div.deliverables */
 
       }
       /* /div.two */
