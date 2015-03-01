@@ -75,10 +75,21 @@
       }
       /* /div.route-name */
 
+      /* div.datetime */
       .datetime {
         height: 20vh; width: 92%;
         margin: 0 auto;
+
+        .glyphicon-time {
+          position: relative; top: -2px;
+        }
+
+        .gi-2x {
+          font-size: 2em;
+        }
+
       }
+      /* div.datetime */
 
     }
     /* /div.ride-details-inner-box */

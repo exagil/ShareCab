@@ -16,13 +16,15 @@
           <!-- div.ride-details-inner-box -->
           <div class="ride-details-inner-box">
             <div class="row">
+              <!-- div.route-name -->
               <div class="col-md-12 route-name"><%= @ride.initiator.name %> initiated a ride<br />from <%= @ride.origin.gsub(/,.+/, "") %><br />to <%= @ride.destination.gsub(/,.+/, "") %></div>
+              <!-- /div.route-name -->
             </div>
             <div class="row">
               <!-- div.datetime -->
               <div class="datetime">
-                <div class="col-md-6"><strong>Departure Date:</strong><br/><%= @ride.departure_time.strftime("%d %B %Y") %></div>
-                <div class="col-md-6"><strong>Departure Time:</strong><br/><%= @ride.departure_time.localtime.strftime('%I:%M %p') %></div>
+                <div class="col-md-6"><span class="glyphicon glyphicon-calendar gi-2x"></span><br /><strong>Departure Date:</strong><br/><%= @ride.departure_time.strftime("%d %B %Y") %></div>
+                <div class="col-md-6"><span class="glyphicon glyphicon-time gi-2x"></span><br /><strong>Departure Time:</strong><br/><%= @ride.departure_time.localtime.strftime('%I:%M %p') %></div>
               </div>
               <!-- div.datetime -->
             </div>
