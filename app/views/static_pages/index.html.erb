@@ -66,7 +66,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
   // Origin
-  $("#origin").on('click', function(){
+  $("#origin").on('focus', function(){
     if (!($('.map-canvas-origin').length)){ // origin map not present
       console.log("Origin Map Number: " + $('.map-canvas-origin').length);
       var mapCanvasOrigin = "<div class='map-canvas-origin'></div>";
@@ -105,7 +105,7 @@ $(document).ready(function(){
   }); // end of origin
 
   // Destination
-  $("#destination").on('click', function(){
+  $("#destination").on('focus', function(){
     if (!($('.map-canvas-destination').length)){ // destination map not present
       console.log("Destination Map Number: " + $('.map-canvas-destination').length);
       var mapCanvasDestination = "<div class='map-canvas-destination'></div>"
@@ -238,7 +238,7 @@ $(document).ready(function(){
 
 
   // Passing values to origin_lat and origin_lng on submit
-  $("#find-button").on('click', function(){
+  $("#find-button").on('focus', function(){
     if ($('#origin_lat').is(':empty')){
     $("#origin_lat").val($(".origin-lat").val());
     $("#origin_lng").val($(".origin-lng").val());
