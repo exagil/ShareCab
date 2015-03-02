@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-    default from: "chiragravikanth@gmail.com"  
+    default from: "chi6rag@gmail.com"  
 
     def test(email)
       mail(:to => email, :subject => "Hello World!")

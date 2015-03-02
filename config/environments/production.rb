@@ -1,7 +1,7 @@
 Rails.application.configure do
   APP_ID='817430351667834'
   APP_SECRET='b55b999118607c29795b39f324730cbc'
-  APP_HOST='http://sharecabtest.herokuapp.com/'
+  APP_HOST='sharecabtest.herokuapp.com'
 
   # Settings specified here will take precedence over those in config/application.rb.
 
