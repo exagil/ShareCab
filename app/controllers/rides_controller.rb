@@ -23,7 +23,6 @@ class RidesController < ApplicationController
   end
 
   def index
-    # fail
     # sets a range (flexibility)
     # stores all the rides in rides variable
     # makes an empty instance level array @rides
