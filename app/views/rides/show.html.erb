@@ -23,30 +23,36 @@
             <div class="row">
               <!-- div.datetime -->
               <div class="datetime">
-                <div class="col-md-6"><span class="glyphicon glyphicon-calendar gi-2x"></span><br /><strong>Departure Date:</strong><br/><%= @ride.departure_time.strftime("%d %B %Y") %></div>
-                <div class="col-md-6"><span class="glyphicon glyphicon-time gi-2x"></span><br /><strong>Departure Time:</strong><br/><%= @ride.departure_time.localtime.strftime('%I:%M %p') %></div>
+                <div class="col-md-6 departure-date-div"><span class="glyphicon glyphicon-calendar gi-2x"></span><br />Departure Date<br/><strong><%= @ride.departure_time.strftime("%d %B %Y") %></strong></div>
+                <div class="col-md-6 departure-time-div"><span class="glyphicon glyphicon-time gi-2x"></span><br />Departure Time<br/><strong><%= @ride.departure_time.localtime.strftime('%I:%M %p') %></strong></div>
               </div>
               <!-- div.datetime -->
             </div>
-            <% available_seats = @ride.number_of_seats - @ride.number_of_seats_occupied %>
+            <div class="row">
+              <% available_seats = @ride.number_of_seats - @ride.number_of_seats_occupied %>
+              <!-- div.available-seats -->
+              <div class="col-md-12 available-seats"><strong>Availale Seats: </strong><br/><%= available_seats %></div>
+              <!-- div.available-seats -->
+            </div>
           </div>
           <!-- /div.ride-details-inner-box -->
-          <!-- div.available-seats -->
-          <div class="col-md-12"><strong>Availale Seats: </strong><br/><%= available_seats %></div>
-          <!-- div.available-seats -->
         </div>
-      <% is_current_user_passenger = @ride.passenger_ids.include? current_user.id %>
-      <% if((@ride.departure_time < Time.now) && !is_current_user_passenger) %>
-        <%= content_tag(:button, "Departed", :class => "btn") %>
-      <% elsif((@ride.departure_time < Time.now) && is_current_user_passenger) %>
-        <%= content_tag(:button, "Completed", :class => "btn") %>
-      <% elsif is_current_user_passenger %>
-        <%= content_tag(:button, "Joined", :class => "btn") %>
-      <% elsif available_seats > 0 %>
-        <%= link_to "Join", ride_path(@ride) , method: :patch, class: "btn btn-block btn-primary" %>
-      <% else %>
-        <%= content_tag(:button, "No Seats Left", :class => "btn") %>
-      <% end %>
+        <div class="row">
+          <div class="ride-status col-md-12">
+            <% is_current_user_passenger = @ride.passenger_ids.include? current_user.id %>
+            <% if((@ride.departure_time < Time.now) && !is_current_user_passenger) %>
+              <%= content_tag(:button, "Departed", :class => "btn") %>
+            <% elsif((@ride.departure_time < Time.now) && is_current_user_passenger) %>
+              <%= content_tag(:button, "Completed", :class => "btn") %>
+            <% elsif is_current_user_passenger %>
+              <%= content_tag(:button, "Joined", :class => "btn") %>
+            <% elsif available_seats > 0 %>
+              <%= link_to "Join", ride_path(@ride) , method: :patch, class: "btn btn-block btn-primary" %>
+            <% else %>
+              <%= content_tag(:button, "No Seats Left", :class => "btn") %>
+            <% end %>
+          </div>
+        </div>
       </div>
       <!-- div.col-md-4 -->
     </div>
