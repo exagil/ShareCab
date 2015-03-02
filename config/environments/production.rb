@@ -1,7 +1,7 @@
 Rails.application.configure do
-  APP_ID='348078458713880'
-  APP_SECRET='9339e316e3738162b0991e0bfedf7481'
-  APP_HOST='http://sharecab.herokuapp.com/'
+  APP_ID='817430351667834'
+  APP_SECRET='b55b999118607c29795b39f324730cbc'
+  APP_HOST='http://sharecabtest.herokuapp.com/'
 
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -81,7 +81,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: 'sharecab.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'sharecabtest.herokuapp.com' }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
