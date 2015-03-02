@@ -1,3 +1,40 @@
+<!-- form start -->
+<%= form_tag(rides_path, class: 'form-inline', method: :post) do %>
+<span class="center-form">
+  <div class="form-group fill-origin">
+    <%= text_field_tag :origin, params[:origin], class: 'form-control origin-input-nav', placeholder: "Origin" %>
+    <%= hidden_field_tag :lat, params[:o_dummy_1], class: 'form-control origin-lat' %>
+    <%= hidden_field_tag :lng, params[:o_dummy_2], class: 'form-control origin-lng' %>
+    <%= hidden_field_tag :origin_lat, params[:o_dummy_3], class: 'form-control' %>
+    <%= hidden_field_tag :origin_lng, params[:o_dummy_4], class: 'form-control' %>
+  </div>
+  <div class="form-group fill-destination">
+    <%= text_field_tag :destination, params[:destination], class: 'form-control  destination-input-nav', placeholder: "Destination" %>
+    <%= hidden_field_tag :lat, params[:d_dummy_1], class: 'form-control destination-lat' %>
+    <%= hidden_field_tag :lng, params[:d_dummy_2], class: 'form-control destination-lng' %>
+    <%= hidden_field_tag :destination_lat, params[:d_dummy_3], class: 'form-control' %>
+    <%= hidden_field_tag :destination_lng, params[:d_dummy_4], class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <input class="form-control" id="date" placeholder="Date" name="date">
+  </div>
+  <div class="form-group">
+    <input class="form-control" id="time" placeholder="Time" name="time">
+  </div>
+  <div class="form-group">
+    <input class="form-control" id="numberofseats" placeholder="Max Number of Passengers Number of Seats" name="number_of_seats">
+  </div>
+
+  <button type="submit" class="btn btn-default" id="new-ride">Create a new ride</button>
+  </span>
+<% end %>
+<!-- form end -->
+
+<script type="text/javascript">
+  $("#date").datepicker({
+    dateFormat: "dd-mm-yy"
+  });
+</script>
 
 <script>
 $(document).ready(function(){
@@ -23,10 +60,10 @@ $(document).ready(function(){
 
     $('#origin').geocomplete({
       // map: ".map-canvas-origin",
-      details: ".fill-origin",
-      markerOptions: {
-        draggable: true
-      }
+      details: ".fill-origin"//,
+      // markerOptions: {
+      //   draggable: true
+      // }
     });
 
     // $("#find").click(function(){
@@ -57,11 +94,11 @@ $(document).ready(function(){
     // }
 
     $('#destination').geocomplete({
-      map: ".map-canvas-destination",
-      details: ".fill-destination",
-      markerOptions: {
-        draggable: true
-      }
+      // map: ".map-canvas-destination",
+      details: ".fill-destination"//,
+      // markerOptions: {
+      //   draggable: true
+      // }
     });
 
     // $("#find").click(function(){
@@ -76,7 +113,7 @@ $(document).ready(function(){
 
 
   // Passing values to origin_lat and origin_lng
-  $("#find").on('click', function(){
+  $("#new-ride").on('click', function(){
     $("#origin_lat").val($(".origin-lat").val());
     $("#origin_lng").val($(".origin-lng").val());
     $("#destination_lat").val($(".destination-lat").val());

@@ -18,7 +18,6 @@ class RidesController < ApplicationController
       ride.number_of_seats_occupied = 1
       ride.save!
       ride.ridings.create(user_id: current_user.id)
-      
       redirect_to static_pages_successful_ride_creation_url
     end
   end
