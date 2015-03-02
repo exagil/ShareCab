@@ -47,7 +47,7 @@
             <% elsif is_current_user_passenger %>
               <%= content_tag(:button, "Joined", :class => "btn") %>
             <% elsif available_seats > 0 %>
-              <%= link_to "Join", ride_path(@ride) , method: :patch, class: "btn btn-block btn-primary" %>
+              <%= link_to "Join ", ride_path(@ride) , method: :patch, class: 'join-button' %>
             <% else %>
               <%= content_tag(:button, "No Seats Left", :class => "btn") %>
             <% end %>

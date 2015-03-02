@@ -130,6 +130,21 @@
       &:hover {
         background-color: #DFDFDF;
       };
+
+      /* .join-button */
+      .join-button {
+        display: inline-block;
+        width: 100%;
+        font-size: 1.8em; padding-top: 0.2em;
+        color: #35495f;
+
+        &:hover {
+          text-decoration: none;
+        }
+
+      }
+      /* /.join-button */
+
     }
     /* /div.ride-status */
 

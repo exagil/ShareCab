@@ -1,14 +1,16 @@
-<%= render partial: 'layouts/header' %>
-<div id="congratsnewride">
-  <div class="congrats-content-block">
-  <h1>Congratulations</h1>
-  <p>Your ride has been posted!<br/> We will notify you when there is a potential match</p>
-  <div class="container">
- <div class="row">
-     <div class="congrats-return-to-home "><%= link_to "Find another ride", static_pages_index_path %></div>
+<!-- div.no-ride-found -->
+<div class="no-ride-found">
+	<!-- div#navbar-standard -->
+	<%= render partial: 'layouts/header' %>
+	<!-- div#navbar-standard -->
+	<!-- div#message -->
+	<div class="container" id="message">
+		<h2>Yayy!<hr /></h2>
+    <p>Your ride has been initiated!<br/> We will notify you when there is a potential match</p>
+    <br />
+    <%= link_to "Find another Ride", root_url, class: 'btn btn-primary' %></div>
   </div>
-  </div>
-  </div>
-  <%= render partial: 'static_pages/footer' %>
+  <!-- div#message -->
+	<%= render partial: 'static_pages/footer' %>
 </div>
-
+<!-- /div.no-ride-found -->
