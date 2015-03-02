@@ -85,7 +85,10 @@ class RidesController < ApplicationController
       if riding_save
         ride.update(number_of_seats_occupied: ride.number_of_seats_occupied+1)
         flash[:success] = "Congratulations! Your cab is booked"
-        UserMailer.join(current_user.email, current_user.name).deliver_now
+        begin
+          UserMailer.join(current_user.email, current_user.name).deliver_now
+        rescue Net::SMTPFatalError => e
+        end
       end
       redirect_to static_pages_successful_ride_join_path
     end
