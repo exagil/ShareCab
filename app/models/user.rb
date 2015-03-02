@@ -44,7 +44,8 @@ class User < ActiveRecord::Base
       if bool==nil
         begin
         UserMailer.welcome(auth.info.email, auth.info.name).deliver_now
-      rescue Net::SMTPFatalError => e
+        rescue Net::SMTPFatalError => e
+        end
       end
     end
   end
