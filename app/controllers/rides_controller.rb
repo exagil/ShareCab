@@ -87,7 +87,7 @@ class RidesController < ApplicationController
         flash[:success] = "Congratulations! Your cab is booked"
         UserMailer.join(current_user.email, current_user.name).deliver_now
       end
-      redirect_to static_pages_successful_ride_creation_path
+      redirect_to static_pages_successful_ride_join_path
     end
   end
 

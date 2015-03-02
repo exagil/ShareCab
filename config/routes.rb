@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   get 'static_pages/no_ride_found'
 
+  get 'static_pages/successful_ride_join'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -18,4 +18,8 @@ class StaticPagesController < ApplicationController
 
   def successful_ride_creation
   end
+
+  def successful_ride_join
+  end
+
 end

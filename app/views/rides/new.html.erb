@@ -1,49 +1,61 @@
-<%= render partial: 'rides/routemap' %>
-<div class="container">
-<!-- form start -->
-<% if @errors && !@errors.empty? %>
-  <%= render partial: 'rides/error' %>
-<% end %>
-<%= form_tag(rides_path, class: 'form-inline', method: :post) do %>
-<div class="row">
-  <div class="form-group fill-origin col-sm-offset-2 col-sm-4">
-    <%= text_field_tag :origin, session[:origin], class: 'form-control form-input-modify', placeholder: "Origin" %>
-    <%= hidden_field_tag :lat, session[:origin_lat], class: 'form-control origin-lat' %>
-    <%= hidden_field_tag :lng, session[:origin_lng], class: 'form-control origin-lng' %>
-    <%= hidden_field_tag :origin_lat, session[:origin_lat], class: 'form-control' %>
-    <%= hidden_field_tag :origin_lng, session[:origin_lng], class: 'form-control' %>
-  </div>
-  <div class="form-group fill-destination col-sm-4">
-    <%= text_field_tag :destination, session[:destination], class: 'form-control form-input-modify', placeholder: "Destination" %>
-    <%= hidden_field_tag :lat, session[:destination_lat], class: 'form-control destination-lat' %>
-    <%= hidden_field_tag :lng, session[:destination_lng], class: 'form-control destination-lng' %>
-    <%= hidden_field_tag :destination_lat, session[:destination_lat], class: 'form-control' %>
-    <%= hidden_field_tag :destination_lng, session[:destination_lng], class: 'form-control' %>
-  </div>
-</div><!-- Row of origin and destination -->
+<!-- /div.new-ride -->
+<div class="new-ride">
+  
+  <!-- layouts/header -->
+  <%= render partial: 'layouts/header' %>
+  <!-- /layouts/header -->
+  <!-- rides/routemap -->
+  <%= render partial: 'rides/routemap' %>
+  <!-- /rides/routemap -->
+  <div class="container">
+    <!-- rides/error -->
+    <% if @errors && !@errors.empty? %>
+      <%= render partial: 'rides/error' %>
+    <% end %>
+    <!-- /rides/error -->
+    <%= form_tag(rides_path, class: 'form-inline', method: :post) do %>
+    <div class="row">
+      <div class="form-group fill-origin col-sm-offset-2 col-sm-4">
+        <%= text_field_tag :origin, session[:origin], class: 'form-control form-input-modify', placeholder: "Origin" %>
+        <%= hidden_field_tag :lat, session[:origin_lat], class: 'form-control origin-lat' %>
+        <%= hidden_field_tag :lng, session[:origin_lng], class: 'form-control origin-lng' %>
+        <%= hidden_field_tag :origin_lat, session[:origin_lat], class: 'form-control' %>
+        <%= hidden_field_tag :origin_lng, session[:origin_lng], class: 'form-control' %>
+      </div>
+      <div class="form-group fill-destination col-sm-4">
+        <%= text_field_tag :destination, session[:destination], class: 'form-control form-input-modify', placeholder: "Destination" %>
+        <%= hidden_field_tag :lat, session[:destination_lat], class: 'form-control destination-lat' %>
+        <%= hidden_field_tag :lng, session[:destination_lng], class: 'form-control destination-lng' %>
+        <%= hidden_field_tag :destination_lat, session[:destination_lat], class: 'form-control' %>
+        <%= hidden_field_tag :destination_lng, session[:destination_lng], class: 'form-control' %>
+      </div>
+    </div><!-- Row of origin and destination -->
 
-  <div class="row bottomrowmargin">
-  <div class="form-group col-sm-offset-2 col-sm-4">
-    <input class="form-control form-input-modify" id="date" placeholder="Date" name="date" value="<%= session[:date_filter] || session[:date] %>">
-  </div>
+      <div class="row bottomrowmargin">
+      <div class="form-group col-sm-offset-2 col-sm-4">
+        <input class="form-control form-input-modify" id="date-new" placeholder="Date" name="date" value="<%= session[:date_filter] || session[:date] %>">
+      </div>
 
-  <div class="form-group col-sm-4">
-    <input class="form-control form-input-modify" id="time" placeholder="Time" name="time">
+      <div class="form-group col-sm-4">
+        <input class="form-control form-input-modify" id="time" placeholder="Time" name="time">
+      </div>
+      </div>
+      <div class="row">
+      <button type="submit" class="newridecreate" id="find">Create a new ride</button>
+      </div>
+    <% end %>
+    <!-- form end -->
   </div>
-  </div>
-  <div class="row">
-  <button type="submit" class="newridecreate" id="find">Create a new ride</button>
-  </div>
-<% end %>
-<!-- form end -->
+  <!-- container ends here -->
+</div>
+<!-- /div.new-ride -->
 
-</div><!-- container ends here -->
-<%= render partial: 'static_pages/footer' %>
+
+
 <script>
-
 $(document).ready(function(){
   $('#time').timepicki();
-  $("#date").datepicker({
+  $("#date-new").datepicker({
     dateFormat: "dd-mm-yy"
   });
   // Origin
