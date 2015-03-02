@@ -1,13 +1,15 @@
-<div class="container" id="noridefound">
-  <div class="row">
-    <div id="noridefoundcontent" class="col-xs-offset-1 col-xs-10"><p>Oops! Seems like there is no body who matches your route. Please enter your ride details so that we can match you with someone who looks for the same ride in future</p>
-    </div>
+<!-- div.no-ride-found -->
+<div class="no-ride-found">
+	<!-- div#navbar-standard -->
+	<%= render partial: 'layouts/header' %>
+	<!-- div#navbar-standard -->
+	<!-- div#message -->
+	<div class="container" id="message">
+		<h2>Oops!<hr /></h2>
+    <p>seems like nobody matches your route<br />Please enter your ride details so that we can match you with someone who looks for the same ride in future</p><br />
+    <%= link_to user_signed_in? ? "Initiate a Ride" : "Login to Initiate a Ride", user_signed_in? ? new_ride_path : user_omniauth_authorize_path(:facebook), class: 'btn btn-primary'%>
   </div>
-  <div class="row">
-     <div class="noridefoundlogin "><%= link_to user_signed_in? ? "Create a Ride" : "Login and Create a Ride", user_signed_in? ? new_ride_path : user_omniauth_authorize_path(:facebook)%></div>
-  </div>
+  <!-- div#message -->
+	<%= render partial: 'static_pages/footer' %>
 </div>
-
-<%= render partial: 'static_pages/footer' %>
-
-
+<!-- /div.no-ride-found -->

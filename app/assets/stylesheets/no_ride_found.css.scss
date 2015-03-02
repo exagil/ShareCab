@@ -1,0 +1,73 @@
+/*
+
+  structure
+  ---------
+
+  Please follow the SASS structure strictly
+
+  - div.no-ride-found
+    - nav#navbar-standard
+    
+*/
+
+/* div.no-ride-found */
+  div.no-ride-found {
+    min-height: 100vh; width: 100vw;
+    background-color: rgb(252, 252, 252);
+
+    /* nav#navbar-standard */
+    #navbar-standard {
+      margin-bottom: 0px;
+
+      /* a.navbar-brand */
+      .navbar-brand {
+        padding: 1em; padding-left: 1.6em;
+        color: #6CAFF5; font-weight: bold;
+        font-family: Comfortaa, sans-serif;
+        font-size: 2em;
+      }
+      /* /a.navbar-brand */
+
+      /* div.navbar-collapse */
+      div.navbar-collapse {
+        ul.nav.navbar-nav.navbar-right {
+          padding: 1em; padding-right: 1.6em;
+          
+          a {
+            color: #737373;
+            &:hover {
+              color: #737373;
+            }
+          }
+        }
+      }
+      /* /div-navbar-collapse */
+    }
+    /* /nav#navbar-standard */
+
+    #message {
+      margin: 0 auto; text-align: center;
+      width: 40%; max-height: 40vh;
+      position: relative; top: 25vh; transform: translateY(-50%);
+
+      h2 {
+        font-size: 4em;
+
+        hr {
+          width: 50%;
+        }
+
+      }
+
+      p {
+        font-size: 1.2em;
+      }
+
+      .btn-primary {
+        border: 0px; padding: 1em;
+      }
+
+    }
+
+  }
+/* /div.no-ride-found */
