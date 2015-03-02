@@ -1,42 +1,46 @@
+<%= render partial: 'rides/routemap' %>
+<div class="container">
 <!-- form start -->
+<% if @errors && !@errors.empty? %>
+  <%= render partial: 'rides/error' %>
+<% end %>
 <%= form_tag(rides_path, class: 'form-inline', method: :post) do %>
-<span class="center-form">
-  <div class="form-group fill-origin">
-    <%= text_field_tag :origin, params[:origin], class: 'form-control origin-input-nav', placeholder: "Origin" %>
-    <%= hidden_field_tag :lat, params[:o_dummy_1], class: 'form-control origin-lat' %>
-    <%= hidden_field_tag :lng, params[:o_dummy_2], class: 'form-control origin-lng' %>
-    <%= hidden_field_tag :origin_lat, params[:o_dummy_3], class: 'form-control' %>
-    <%= hidden_field_tag :origin_lng, params[:o_dummy_4], class: 'form-control' %>
+<div class="row">
+  <div class="form-group fill-origin col-sm-offset-2 col-sm-4">
+    <%= text_field_tag :origin, session[:origin], class: 'form-control form-input-modify', placeholder: "Origin" %>
+    <%= hidden_field_tag :lat, session[:origin_lat], class: 'form-control origin-lat' %>
+    <%= hidden_field_tag :lng, session[:origin_lng], class: 'form-control origin-lng' %>
+    <%= hidden_field_tag :origin_lat, session[:origin_lat], class: 'form-control' %>
+    <%= hidden_field_tag :origin_lng, session[:origin_lng], class: 'form-control' %>
   </div>
-  <div class="form-group fill-destination">
-    <%= text_field_tag :destination, params[:destination], class: 'form-control  destination-input-nav', placeholder: "Destination" %>
-    <%= hidden_field_tag :lat, params[:d_dummy_1], class: 'form-control destination-lat' %>
-    <%= hidden_field_tag :lng, params[:d_dummy_2], class: 'form-control destination-lng' %>
-    <%= hidden_field_tag :destination_lat, params[:d_dummy_3], class: 'form-control' %>
-    <%= hidden_field_tag :destination_lng, params[:d_dummy_4], class: 'form-control' %>
+  <div class="form-group fill-destination col-sm-4">
+    <%= text_field_tag :destination, session[:destination], class: 'form-control form-input-modify', placeholder: "Destination" %>
+    <%= hidden_field_tag :lat, session[:destination_lat], class: 'form-control destination-lat' %>
+    <%= hidden_field_tag :lng, session[:destination_lng], class: 'form-control destination-lng' %>
+    <%= hidden_field_tag :destination_lat, session[:destination_lat], class: 'form-control' %>
+    <%= hidden_field_tag :destination_lng, session[:destination_lng], class: 'form-control' %>
   </div>
-  <div class="form-group">
-    <input class="form-control" id="date" placeholder="Date" name="date">
-  </div>
-  <div class="form-group">
-    <input class="form-control" id="time" placeholder="Time" name="time">
-  </div>
-  <div class="form-group">
-    <input class="form-control" id="numberofseats" placeholder="Max Number of Passengers Number of Seats" name="number_of_seats">
+</div><!-- Row of origin and destination -->
+
+  <div class="row bottomrowmargin">
+  <div class="form-group col-sm-offset-2 col-sm-4">
+    <input class="form-control form-input-modify" id="date" placeholder="Date" name="date" value="<%= session[:date_filter] || session[:date] %>">
   </div>
 
-  <button type="submit" class="btn btn-default" id="new-ride">Create a new ride</button>
-  </span>
+  <div class="form-group col-sm-4">
+    <input class="form-control form-input-modify" id="time" placeholder="Time" name="time">
+  </div>
+  </div>
+  <div class="row">
+  <button type="submit" class="newridecreate" id="find">Create a new ride</button>
+  </div>
 <% end %>
 <!-- form end -->
 
-<script type="text/javascript">
-  $("#date").datepicker({
-    dateFormat: "dd-mm-yy"
-  });
-</script>
-
+</div><!-- container ends here -->
+<%= render partial: 'static_pages/footer' %>
 <script>
+
 $(document).ready(function(){
   $('#time').timepicki();
   $("#date").datepicker({
@@ -60,10 +64,10 @@ $(document).ready(function(){
 
     $('#origin').geocomplete({
       // map: ".map-canvas-origin",
-      details: ".fill-origin"//,
-      // markerOptions: {
-      //   draggable: true
-      // }
+      details: ".fill-origin",
+      markerOptions: {
+        draggable: true
+      }
     });
 
     // $("#find").click(function(){
@@ -94,11 +98,11 @@ $(document).ready(function(){
     // }
 
     $('#destination').geocomplete({
-      // map: ".map-canvas-destination",
-      details: ".fill-destination"//,
-      // markerOptions: {
-      //   draggable: true
-      // }
+      map: ".map-canvas-destination",
+      details: ".fill-destination",
+      markerOptions: {
+        draggable: true
+      }
     });
 
     // $("#find").click(function(){
@@ -113,7 +117,7 @@ $(document).ready(function(){
 
 
   // Passing values to origin_lat and origin_lng
-  $("#new-ride").on('click', function(){
+  $("#find").on('click', function(){
     $("#origin_lat").val($(".origin-lat").val());
     $("#origin_lng").val($(".origin-lng").val());
     $("#destination_lat").val($(".destination-lat").val());
