@@ -45,7 +45,65 @@ div.new-ride {
   }
   /* /nav#navbar-standard */
 
-  
+  /* div.new-ride-wrapper */
+  .new-ride-wrapper {
+    height: contain;
+    margin-top: 3em;
+
+    /* div.new-ride-form */
+    .new-ride-form {
+
+      label {
+        float: left; margin-left: 0.3em;
+        font-size: 0.8em; color: #666666; 
+        font-weight: normal; font-style: italic;
+      }
+
+      .fill-origin {
+        width: 100%; text-align: center;
+      }
+
+      .fill-destination {
+        text-align: center;
+        width: 100%;
+      }
+
+      .date-time {
+        width: 100%;
+
+        #date-new {
+          width: 49%; float: left
+        }
+
+        #time {
+          width: 49%; float: right;
+        }
+
+      }
+
+      input {
+        width: 100%;
+        height: 3.5em;
+        margin-bottom: 1em;
+      }
+
+      .create-ride-button {
+        width: 100%; height: 10vh;
+      }
+
+    }
+    /* /div.new-ride-form */
+
+    /* div.routemap-independent */
+    .routemap-independent {
+      min-height: 60vh; background-color: yellow;
+    }
+    /* div.routemap-independent */
+
+  }
+  /* /div.new-ride-wrapper */
+
+
 
 }    
 /* /div.new-ride */
