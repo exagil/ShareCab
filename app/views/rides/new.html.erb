@@ -36,10 +36,14 @@
 
       <div class="row">
         <div class="form-group date-time">
-          <%= label_tag :date_new, "On this date" %>
-          <input class="form-control form-input-modify" id="date_new" placeholder="Date" name="date" value="<%= session[:date_filter] || session[:date] %>">
-          <%= label_tag :time, "At this time" %>
-          <input class="form-control form-input-modify" id="time" placeholder="Time" name="time">
+          <div class="date-wrapper">  
+            <%= label_tag :origin, "On this date" %>
+            <input class="form-control form-input-modify" id="date_new" placeholder="Date" name="date" value="<%= session[:date_filter] || session[:date] %>">
+          </div>
+          <div class="time-wrapper">
+            <%= label_tag :origin, "At this time" %>
+            <input class="form-control form-input-modify" id="time" placeholder="Time" name="time">
+          </div>
         </div>
       </div>
 
@@ -53,7 +57,9 @@
   <div class="col-md-1"></div>
 
   <!-- div.routemap-independent -->
-  <div class="col-md-5 routemap-independent"></div>
+  <div class="col-md-5 routemap-independent">
+    <%= render partial: 'rides/routemap_independent' %>
+  </div>
   <!-- /div.routemap-independent -->
   </div>
   <!-- /div.new-ride-wrapper -->
