@@ -1,5 +1,7 @@
-<% @errors.each do |error, message| %>
-	<div class="alert alert-warning">
-	  <%= error.to_s.gsub("_", " ").capitalize + " " + message[0] %>
+	<div class="alert alert-danger">
+	The form contains <%= @errors.count %> errors:<br />
+	<% @errors.each do |error, message| %>
+	  &nbsp;&nbsp;&nbsp;<%= error.to_s.gsub("_", " ").capitalize + " " + message[0] %>
+	  <br />
+	<% end %>
 	</div>
-<% end %>

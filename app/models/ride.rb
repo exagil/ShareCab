@@ -135,6 +135,7 @@ class Ride < ActiveRecord::Base
     errors.add(:destination, "cannot be blank") if params[:destination].nil? || params[:destination].blank?
     errors.add(:departure_time, "cannot be blank") if params[:time].nil? || params[:time].blank?
     errors.add(:departure_time, "cannot be blank") if params[:date].nil? || params[:date].blank?
+    errors.add(:terms_and_conditions, "should be accepted") if params[:terms_and_conditions].nil? || params[:terms_and_conditions] != "I hereby accept the Terms and Conditions and the risks involved with initiating a ride"
     errors
   end
 

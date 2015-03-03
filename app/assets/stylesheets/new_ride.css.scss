@@ -53,6 +53,14 @@ div.new-ride {
     /* div.new-ride-form */
     .new-ride-form {
 
+      /* div.alert.alert-danger */
+      .alert.alert-danger {
+        border: 0px solid transparent;
+        border-radius: 1px;
+        font-size: 0.9em;
+      }
+      /* /div.alert.alert-danger */
+
       label {
         float: left; margin-left: 0.3em;
         font-size: 0.8em; color: #666666; 
@@ -91,13 +99,41 @@ div.new-ride {
         width: 100%;
         height: 3.5em;
         margin-bottom: 1em;
+        border: 1px solid #E8E8E8; border-radius: 2px;
       }
+
+      /* div.tnc */
+      .tnc {
+        width: 99%;
+        margin: 0 auto;
+        
+        /* input#terms_and_conditions */
+        #terms_and_conditions {
+          height: initial; width: initial;
+          position: relative; top: 0.1em;
+        }
+        /* /input#terms_and_conditions */
+
+        label {
+          float: none;
+        }
+
+      }
+      /* /div.tnc */
 
       /* div.create-ride-button */
       .create-ride-button {
-        margin-top: 0.5em;
-        width: 100%; padding: 1em;
-        font-size: 1.2em;
+        margin-top: 0.5em; padding: 0.5em;
+        float: right; width: 30%;
+        border: 1px solid rgb(108, 175, 245); border-radius: 2px;
+        background-color: rgb(108, 175, 245);
+        font-size: 1em; color: white; font-weight: 400;
+        transition: background-color 0.5s;
+
+        &:hover {
+          background-color: #639FDF;
+        }
+
       }
       /* /div.create-ride-button */
 

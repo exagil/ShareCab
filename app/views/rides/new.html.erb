@@ -14,6 +14,7 @@
       <!-- /rides/error -->
       <%= form_tag(rides_path, class: 'form-inline', method: :post) do %>
       <div class="row">
+        <!-- div.fill-origin -->
         <div class="form-group fill-origin">
           <%= label_tag :origin, "From eg: Gachibowli.." %>
           <%= text_field_tag :origin, session[:origin], class: 'form-control form-input-modify', placeholder: "Origin" %>
@@ -22,8 +23,10 @@
           <%= hidden_field_tag :origin_lat, session[:origin_lat], class: 'form-control' %>
           <%= hidden_field_tag :origin_lng, session[:origin_lng], class: 'form-control' %>
         </div>
+        <!-- /div.fill-origin -->
       </div>
       <div class="row">
+        <!-- div.fill-destination -->
         <div class="form-group fill-destination">
           <%= label_tag :origin, "To eg: Hitech City.." %>
           <%= text_field_tag :destination, session[:destination], class: 'form-control form-input-modify', placeholder: "Destination" %>
@@ -32,23 +35,37 @@
           <%= hidden_field_tag :destination_lat, session[:destination_lat], class: 'form-control' %>
           <%= hidden_field_tag :destination_lng, session[:destination_lng], class: 'form-control' %>
         </div>
+        <!-- /div.fill-destination -->
       </div>
 
       <div class="row">
+        <!-- div.fill-date-time -->
         <div class="form-group date-time">
-          <div class="date-wrapper">  
-            <%= label_tag :origin, "On this date" %>
+          <div class="date-wrapper">
+            <% date = Time.now.strftime("%d-%m-%Y") %>
+            <%= label_tag :origin, "On date eg: #{date}" %>
             <input class="form-control form-input-modify" id="date_new" placeholder="Date" name="date" value="<%= session[:date_filter] || session[:date] %>">
           </div>
           <div class="time-wrapper">
-            <%= label_tag :origin, "At this time" %>
+            <% time = Time.now.strftime("%I : %M : %p") %>
+            <%= label_tag :origin, "At time eg: #{time}" %>
             <input class="form-control form-input-modify" id="time" placeholder="Time" name="time">
           </div>
         </div>
+        <!-- /div.fill-date-time -->
       </div>
 
       <div class="row">
-        <button type="submit" class="create-ride-button">Create a new ride</button>
+        <!-- div.tnc -->
+        <div class="tnc">
+          <%= check_box_tag :terms_and_conditions, "I hereby accept the Terms and Conditions and the risks involved with initiating a ride" %>
+          <%= label_tag :terms_and_conditions, "I hereby accept the Terms and Conditions and the risks involved with initiating a ride" %>
+        </div>
+        <!-- /div.tnc -->
+      </div>
+
+      <div class="row">
+        <button type="submit" class="create-ride-button">Create Ride</button>
       </div>
       <% end %>
     </div>
